@@ -15,6 +15,7 @@
 		AC0E72B91CFCC4BB00E369BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E72B71CFCC4BB00E369BE /* LaunchScreen.storyboard */; };
 		AC0E72C41CFCC4BB00E369BE /* TrackYourTravelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72C31CFCC4BB00E369BE /* TrackYourTravelsTests.swift */; };
 		AC0E72CF1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72CE1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift */; };
+		AC0E72DD1CFCC6CD00E369BE /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72DC1CFCC6CD00E369BE /* Readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		AC0E72CA1CFCC4BC00E369BE /* TrackYourTravelsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackYourTravelsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0E72CE1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackYourTravelsUITests.swift; sourceTree = "<group>"; };
 		AC0E72D01CFCC4BC00E369BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC0E72DC1CFCC6CD00E369BE /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Readme.md; path = ../Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				AC0E72B01CFCC4BB00E369BE /* SecondViewController.swift */,
 				AC0E72B21CFCC4BB00E369BE /* Main.storyboard */,
 				AC0E72B51CFCC4BB00E369BE /* Assets.xcassets */,
+				AC0E72DC1CFCC6CD00E369BE /* Readme.md */,
 				AC0E72B71CFCC4BB00E369BE /* LaunchScreen.storyboard */,
 				AC0E72BA1CFCC4BB00E369BE /* Info.plist */,
 			);
@@ -264,6 +267,7 @@
 			files = (
 				AC0E72B11CFCC4BB00E369BE /* SecondViewController.swift in Sources */,
 				AC0E72AD1CFCC4BB00E369BE /* AppDelegate.swift in Sources */,
+				AC0E72DD1CFCC6CD00E369BE /* Readme.md in Sources */,
 				AC0E72AF1CFCC4BB00E369BE /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
