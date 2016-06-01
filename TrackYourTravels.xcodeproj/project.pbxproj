@@ -16,6 +16,12 @@
 		AC0E72C41CFCC4BB00E369BE /* TrackYourTravelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72C31CFCC4BB00E369BE /* TrackYourTravelsTests.swift */; };
 		AC0E72CF1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72CE1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift */; };
 		AC0E72DD1CFCC6CD00E369BE /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72DC1CFCC6CD00E369BE /* Readme.md */; };
+		AC0E72E01CFDECB600E369BE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72DF1CFDECB600E369BE /* MapKit.framework */; };
+		AC0E72E21CFEE6A700E369BE /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72E11CFEE6A700E369BE /* ThirdViewController.swift */; };
+		AC0E72E71CFF114D00E369BE /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72E61CFF114D00E369BE /* SQLite.swift */; };
+		AC0E72E91CFF1D6B00E369BE /* HelpDocumentation.md in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72E81CFF1D6B00E369BE /* HelpDocumentation.md */; };
+		AC0E72EC1CFF1F2200E369BE /* Design.md in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72EB1CFF1F2200E369BE /* Design.md */; };
+		AC0E72EE1CFF20B400E369BE /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72ED1CFF20B400E369BE /* UserSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		AC0E72CE1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackYourTravelsUITests.swift; sourceTree = "<group>"; };
 		AC0E72D01CFCC4BC00E369BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC0E72DC1CFCC6CD00E369BE /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Readme.md; path = ../Readme.md; sourceTree = "<group>"; };
+		AC0E72DF1CFDECB600E369BE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AC0E72E11CFEE6A700E369BE /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		AC0E72E61CFF114D00E369BE /* SQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLite.swift; sourceTree = "<group>"; };
+		AC0E72E81CFF1D6B00E369BE /* HelpDocumentation.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = HelpDocumentation.md; sourceTree = "<group>"; };
+		AC0E72EB1CFF1F2200E369BE /* Design.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Design.md; path = ../Design.md; sourceTree = "<group>"; };
+		AC0E72ED1CFF20B400E369BE /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0E72E01CFDECB600E369BE /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +94,7 @@
 		AC0E72A01CFCC4BB00E369BE = {
 			isa = PBXGroup;
 			children = (
+				AC0E72DF1CFDECB600E369BE /* MapKit.framework */,
 				AC0E72AB1CFCC4BB00E369BE /* TrackYourTravels */,
 				AC0E72C21CFCC4BB00E369BE /* TrackYourTravelsTests */,
 				AC0E72CD1CFCC4BC00E369BE /* TrackYourTravelsUITests */,
@@ -101,11 +115,12 @@
 		AC0E72AB1CFCC4BB00E369BE /* TrackYourTravels */ = {
 			isa = PBXGroup;
 			children = (
-				AC0E72AC1CFCC4BB00E369BE /* AppDelegate.swift */,
-				AC0E72AE1CFCC4BB00E369BE /* FirstViewController.swift */,
-				AC0E72B01CFCC4BB00E369BE /* SecondViewController.swift */,
-				AC0E72B21CFCC4BB00E369BE /* Main.storyboard */,
+				AC0E72E31CFEE6CD00E369BE /* Model */,
+				AC0E72E41CFEE6D800E369BE /* View */,
+				AC0E72E51CFEE6DF00E369BE /* Controller */,
 				AC0E72B51CFCC4BB00E369BE /* Assets.xcassets */,
+				AC0E72E81CFF1D6B00E369BE /* HelpDocumentation.md */,
+				AC0E72EB1CFF1F2200E369BE /* Design.md */,
 				AC0E72DC1CFCC6CD00E369BE /* Readme.md */,
 				AC0E72B71CFCC4BB00E369BE /* LaunchScreen.storyboard */,
 				AC0E72BA1CFCC4BB00E369BE /* Info.plist */,
@@ -129,6 +144,34 @@
 				AC0E72D01CFCC4BC00E369BE /* Info.plist */,
 			);
 			path = TrackYourTravelsUITests;
+			sourceTree = "<group>";
+		};
+		AC0E72E31CFEE6CD00E369BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC0E72E61CFF114D00E369BE /* SQLite.swift */,
+				AC0E72ED1CFF20B400E369BE /* UserSettings.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AC0E72E41CFEE6D800E369BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC0E72B21CFCC4BB00E369BE /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		AC0E72E51CFEE6DF00E369BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC0E72AC1CFCC4BB00E369BE /* AppDelegate.swift */,
+				AC0E72AE1CFCC4BB00E369BE /* FirstViewController.swift */,
+				AC0E72B01CFCC4BB00E369BE /* SecondViewController.swift */,
+				AC0E72E11CFEE6A700E369BE /* ThirdViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +242,14 @@
 				TargetAttributes = {
 					AC0E72A81CFCC4BB00E369BE = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 36D5YEL755;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					AC0E72BE1CFCC4BB00E369BE = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -266,7 +316,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC0E72B11CFCC4BB00E369BE /* SecondViewController.swift in Sources */,
+				AC0E72E91CFF1D6B00E369BE /* HelpDocumentation.md in Sources */,
+				AC0E72EC1CFF1F2200E369BE /* Design.md in Sources */,
+				AC0E72E71CFF114D00E369BE /* SQLite.swift in Sources */,
+				AC0E72EE1CFF20B400E369BE /* UserSettings.swift in Sources */,
 				AC0E72AD1CFCC4BB00E369BE /* AppDelegate.swift in Sources */,
+				AC0E72E21CFEE6A700E369BE /* ThirdViewController.swift in Sources */,
 				AC0E72DD1CFCC6CD00E369BE /* Readme.md in Sources */,
 				AC0E72AF1CFCC4BB00E369BE /* FirstViewController.swift in Sources */,
 			);
@@ -410,6 +465,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TrackYourTravels/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.mprog.TrackYourTravels;
@@ -421,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TrackYourTravels/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.mprog.TrackYourTravels;
@@ -493,6 +550,7 @@
 				AC0E72D51CFCC4BC00E369BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC0E72D61CFCC4BC00E369BE /* Build configuration list for PBXNativeTarget "TrackYourTravelsTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +559,7 @@
 				AC0E72D81CFCC4BC00E369BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC0E72D91CFCC4BC00E369BE /* Build configuration list for PBXNativeTarget "TrackYourTravelsUITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +568,7 @@
 				AC0E72DB1CFCC4BC00E369BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

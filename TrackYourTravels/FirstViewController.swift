@@ -6,12 +6,32 @@
 //  Copyright © 2016 Jidde Koekoek. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import MapKit
+import CoreLocation
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, CLLocationManagerDelegate {
+    
+    @IBOutlet var mapView: MKMapView!
 
+    var locations = [MKPointAnnotation]()
+    
+    lazy var locationManager: CLLocationManager! = {
+        let manager = CLLocationManager()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.delegate = self
+        manager.requestAlwaysAuthorization()
+        
+        return manager
+        
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.startUpdatingLocation()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -23,3 +43,5 @@ class FirstViewController: UIViewController {
 
 }
 
+extension FirstViewController: MKMapViewDelegate {
+}
