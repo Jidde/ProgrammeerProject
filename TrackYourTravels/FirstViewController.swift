@@ -30,8 +30,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
             if CLLocationManager.locationServicesEnabled() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         }
         
@@ -54,18 +52,24 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         locations.append(annotation)
         
         // Remove values if the array is too big
-        while locations.count > 100 {
-            let annotationToRemove = locations.first!
-            locations.removeAtIndex(0)
-            
-            // Also remove from the map
-            mapView.removeAnnotation(annotationToRemove)
-        }
+//        while locations.count > 100 {
+//            let annotationToRemove = locations.first!
+//            locations.removeAtIndex(0)
+//            
+//            // Also remove from the map
+//            mapView.removeAnnotation(annotationToRemove)
+//        }
         
         if UIApplication.sharedApplication().applicationState == .Active {
             mapView.showAnnotations(locations, animated: true)
         } else {
             NSLog("App is backgrounded. New location is %@", newLocation)
+            let latitude = newLocation.coordinate.longitude
+            let longitude = newLocation.coordinate.longitude
+            let timestamp = newLocation.timestamp
+            let speed = newLocation.speed
+            
+            
         }
     }
 }

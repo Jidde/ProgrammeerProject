@@ -15,15 +15,13 @@
 		AC0E72B91CFCC4BB00E369BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0E72B71CFCC4BB00E369BE /* LaunchScreen.storyboard */; };
 		AC0E72C41CFCC4BB00E369BE /* TrackYourTravelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72C31CFCC4BB00E369BE /* TrackYourTravelsTests.swift */; };
 		AC0E72CF1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72CE1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift */; };
-		AC0E72DD1CFCC6CD00E369BE /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72DC1CFCC6CD00E369BE /* Readme.md */; };
 		AC0E72E01CFDECB600E369BE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72DF1CFDECB600E369BE /* MapKit.framework */; };
 		AC0E72E71CFF114D00E369BE /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72E61CFF114D00E369BE /* SQLite.swift */; };
-		AC0E72E91CFF1D6B00E369BE /* HelpDocumentation.md in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72E81CFF1D6B00E369BE /* HelpDocumentation.md */; };
-		AC0E72EC1CFF1F2200E369BE /* Design.md in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72EB1CFF1F2200E369BE /* Design.md */; };
 		AC0E72EE1CFF20B400E369BE /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72ED1CFF20B400E369BE /* UserSettings.swift */; };
 		AC0E72F01D002EA200E369BE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72EF1D002EA200E369BE /* Location.swift */; };
 		AC0E72F21D00354A00E369BE /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72F11D00354A00E369BE /* ThirdViewController.swift */; };
-		AC0E730B1D0036E200E369BE /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72FE1D0036D400E369BE /* SQLite.framework */; };
+		AC0E730C1D0040C300E369BE /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72FE1D0036D400E369BE /* SQLite.framework */; };
+		AC0E730D1D0040C300E369BE /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72FE1D0036D400E369BE /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +88,28 @@
 			remoteGlobalIDString = A121AC451CA35C79005A31D1;
 			remoteInfo = "SQLite watchOS";
 		};
+		AC0E730E1D0040C300E369BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC0E72F31D0036D400E369BE /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EE247AD21C3F04ED00AE3E12;
+			remoteInfo = "SQLite iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC0E73101D0040C300E369BE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC0E730D1D0040C300E369BE /* SQLite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AC0E72A91CFCC4BB00E369BE /* TrackYourTravels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackYourTravels.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,8 +142,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC0E730B1D0036E200E369BE /* SQLite.framework in Frameworks */,
 				AC0E72E01CFDECB600E369BE /* MapKit.framework in Frameworks */,
+				AC0E730C1D0040C300E369BE /* SQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,10 +273,12 @@
 				AC0E72A51CFCC4BB00E369BE /* Sources */,
 				AC0E72A61CFCC4BB00E369BE /* Frameworks */,
 				AC0E72A71CFCC4BB00E369BE /* Resources */,
+				AC0E73101D0040C300E369BE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AC0E730F1D0040C300E369BE /* PBXTargetDependency */,
 			);
 			name = TrackYourTravels;
 			productName = TrackYourTravels;
@@ -444,14 +465,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC0E72B11CFCC4BB00E369BE /* SecondViewController.swift in Sources */,
-				AC0E72E91CFF1D6B00E369BE /* HelpDocumentation.md in Sources */,
 				AC0E72F21D00354A00E369BE /* ThirdViewController.swift in Sources */,
 				AC0E72F01D002EA200E369BE /* Location.swift in Sources */,
-				AC0E72EC1CFF1F2200E369BE /* Design.md in Sources */,
 				AC0E72E71CFF114D00E369BE /* SQLite.swift in Sources */,
 				AC0E72EE1CFF20B400E369BE /* UserSettings.swift in Sources */,
 				AC0E72AD1CFCC4BB00E369BE /* AppDelegate.swift in Sources */,
-				AC0E72DD1CFCC6CD00E369BE /* Readme.md in Sources */,
 				AC0E72AF1CFCC4BB00E369BE /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +502,11 @@
 			isa = PBXTargetDependency;
 			target = AC0E72A81CFCC4BB00E369BE /* TrackYourTravels */;
 			targetProxy = AC0E72CB1CFCC4BC00E369BE /* PBXContainerItemProxy */;
+		};
+		AC0E730F1D0040C300E369BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SQLite iOS";
+			targetProxy = AC0E730E1D0040C300E369BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -595,6 +618,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = TrackYourTravels/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.mprog.TrackYourTravels;
@@ -607,6 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = TrackYourTravels/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.mprog.TrackYourTravels;
