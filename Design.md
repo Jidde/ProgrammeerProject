@@ -4,7 +4,6 @@ Classes:
 
 - For SQLite handling (Singleton?)
 - User Settings
-- 
 
 Frameworks, API etc.:
 
