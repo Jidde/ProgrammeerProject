@@ -8,6 +8,9 @@ https://www.raywenderlich.com/90690/modern-core-graphics-with-swift-part-1
 https://www.raywenderlich.com/90693/modern-core-graphics-with-swift-part-2
 https://www.raywenderlich.com/90695/modern-core-graphics-with-swift-part-3
 
+Charts API
+http://www.appcoda.com/ios-charts-api-tutorial/
+
 Background App Refresh:
 https://www.raywenderlich.com/92428/background-modes-ios-swift-tutorial
 

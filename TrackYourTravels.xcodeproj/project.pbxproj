@@ -22,6 +22,7 @@
 		AC0E72F21D00354A00E369BE /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72F11D00354A00E369BE /* ThirdViewController.swift */; };
 		AC0E730C1D0040C300E369BE /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72FE1D0036D400E369BE /* SQLite.framework */; };
 		AC0E730D1D0040C300E369BE /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72FE1D0036D400E369BE /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AC0E73151D01B01700E369BE /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E73141D01B01700E369BE /* Graph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		AC0E72EF1D002EA200E369BE /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		AC0E72F11D00354A00E369BE /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThirdViewController.swift; path = ../ThirdViewController.swift; sourceTree = "<group>"; };
 		AC0E72F31D0036D400E369BE /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "TrackYourTravels/External/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		AC0E73141D01B01700E369BE /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Graph.swift; path = ../Graph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				AC0E72E61CFF114D00E369BE /* SQLite.swift */,
+				AC0E73141D01B01700E369BE /* Graph.swift */,
 				AC0E72ED1CFF20B400E369BE /* UserSettings.swift */,
 				AC0E72EF1D002EA200E369BE /* Location.swift */,
 			);
@@ -464,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0E73151D01B01700E369BE /* Graph.swift in Sources */,
 				AC0E72B11CFCC4BB00E369BE /* SecondViewController.swift in Sources */,
 				AC0E72F21D00354A00E369BE /* ThirdViewController.swift in Sources */,
 				AC0E72F01D002EA200E369BE /* Location.swift in Sources */,

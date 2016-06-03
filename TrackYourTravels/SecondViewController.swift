@@ -13,6 +13,12 @@ import CoreGraphics
 class SecondViewController: UIViewController {
     
     @IBOutlet var periodSetter: UISegmentedControl!
+    
+    
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
