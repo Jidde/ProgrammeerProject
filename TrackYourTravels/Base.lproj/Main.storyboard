@@ -16,9 +16,77 @@
                     <view key="view" contentMode="scaleToFill" id="sw1-My-zdL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="814-FN-3fX">
+                                <rect key="frame" x="223" y="28" width="154" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uCc-f8-Ygx">
+                                <rect key="frame" x="135" y="451" width="330" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="330" id="cLK-DW-m8a"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Best"/>
+                                    <segment title="10m"/>
+                                    <segment title="100m"/>
+                                    <segment title="1km"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="03Q-X7-lTs">
+                                <rect key="frame" x="216" y="159" width="168" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="z9h-7H-uuW"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Run"/>
+                                    <segment title="Bike"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9FU-g9-Igg">
+                                <rect key="frame" x="186" y="216" width="229" height="29"/>
+                                <segments>
+                                    <segment title="Car"/>
+                                    <segment title="Public Transport"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which level of accuracy do you prefer?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpb-F8-c1k">
+                                <rect key="frame" x="152" y="408" width="297" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modes of transportation:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99h-6v-8BK">
+                                <rect key="frame" x="205" y="115" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="814-FN-3fX" firstAttribute="centerX" secondItem="zpb-F8-c1k" secondAttribute="centerX" id="23z-0k-n5F"/>
+                            <constraint firstItem="03Q-X7-lTs" firstAttribute="top" secondItem="99h-6v-8BK" secondAttribute="bottom" constant="23" id="7SY-bg-L82"/>
+                            <constraint firstItem="814-FN-3fX" firstAttribute="centerX" secondItem="9FU-g9-Igg" secondAttribute="centerX" id="D1K-S1-qUC"/>
+                            <constraint firstAttribute="bottom" secondItem="zpb-F8-c1k" secondAttribute="bottom" constant="171" id="G7q-0p-2Iz"/>
+                            <constraint firstItem="03Q-X7-lTs" firstAttribute="centerX" secondItem="9FU-g9-Igg" secondAttribute="centerX" id="Ldc-rg-Yn2"/>
+                            <constraint firstItem="99h-6v-8BK" firstAttribute="centerX" secondItem="03Q-X7-lTs" secondAttribute="centerX" id="SFb-Dg-TYs"/>
+                            <constraint firstItem="9FU-g9-Igg" firstAttribute="top" secondItem="03Q-X7-lTs" secondAttribute="bottom" constant="29" id="VjJ-Pi-xFS"/>
+                            <constraint firstItem="814-FN-3fX" firstAttribute="centerX" secondItem="sw1-My-zdL" secondAttribute="centerX" id="hWZ-aG-VGM"/>
+                            <constraint firstItem="uCc-f8-Ygx" firstAttribute="top" secondItem="zpb-F8-c1k" secondAttribute="bottom" constant="22" id="jZv-hs-qvC"/>
+                            <constraint firstItem="814-FN-3fX" firstAttribute="top" secondItem="QvL-yu-L6q" secondAttribute="bottom" constant="8" symbolic="YES" id="odA-q7-nuN"/>
+                            <constraint firstItem="99h-6v-8BK" firstAttribute="top" secondItem="814-FN-3fX" secondAttribute="bottom" constant="63" id="voW-nF-Owm"/>
+                            <constraint firstItem="uCc-f8-Ygx" firstAttribute="centerX" secondItem="zpb-F8-c1k" secondAttribute="centerX" id="wOz-or-1tD"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="second" selectedImage="second" id="EaX-61-mA8"/>
+                    <connections>
+                        <outlet property="CarOrPT" destination="9FU-g9-Igg" id="NKF-vB-DKQ"/>
+                        <outlet property="accuracyLevel" destination="uCc-f8-Ygx" id="TPS-Zl-1TP"/>
+                        <outlet property="runOrBike" destination="03Q-X7-lTs" id="v4T-7w-Q8A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Mf-CD-dpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,9 +139,43 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myI-9e-1Yg">
+                                <rect key="frame" x="0.0" y="50" width="600" height="501"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATp-3u-tfX">
+                                <rect key="frame" x="259" y="28" width="83" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="52U-xr-v6r">
+                                <rect key="frame" x="20" y="71" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Day"/>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="52U-xr-v6r" firstAttribute="centerX" secondItem="ATp-3u-tfX" secondAttribute="centerX" id="17F-s7-cEV"/>
+                            <constraint firstItem="myI-9e-1Yg" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="384-Ia-MIz"/>
+                            <constraint firstItem="52U-xr-v6r" firstAttribute="top" secondItem="ATp-3u-tfX" secondAttribute="bottom" constant="19" id="3Zb-jn-2Ts"/>
+                            <constraint firstItem="myI-9e-1Yg" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="30" id="75y-W3-X4t"/>
+                            <constraint firstItem="ATp-3u-tfX" firstAttribute="centerX" secondItem="myI-9e-1Yg" secondAttribute="centerX" id="9VF-ky-BUv"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="myI-9e-1Yg" secondAttribute="bottom" id="Ops-df-2BM"/>
+                            <constraint firstAttribute="trailing" secondItem="myI-9e-1Yg" secondAttribute="trailing" id="nTY-bZ-7EY"/>
+                            <constraint firstAttribute="trailing" secondItem="52U-xr-v6r" secondAttribute="trailing" constant="20" id="pd1-yS-gDO"/>
+                            <constraint firstItem="52U-xr-v6r" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="xhn-xT-1du"/>
+                            <constraint firstItem="ATp-3u-tfX" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="zDP-s0-xlZ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="periodSetter" destination="52U-xr-v6r" id="LcF-6Y-cW9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,6 +9,10 @@
 import UIKit
 
 class ThirdViewController: UIViewController {
+    
+    @IBOutlet var runOrBike: UISegmentedControl!
+    @IBOutlet var CarOrPT: UISegmentedControl!
+    @IBOutlet var accuracyLevel: UISegmentedControl!    
 
     override func viewDidLoad() {
         super.viewDidLoad()

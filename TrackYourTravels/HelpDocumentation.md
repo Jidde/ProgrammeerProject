@@ -30,3 +30,14 @@ If GPS-level accuracy isn’t critical for your app and you don’t need continu
 
 Scrollable view:
 https://www.raywenderlich.com/122139/uiscrollview-tutorial
+
+Google Analytics:
+https://developers.google.com/analytics/devguides/collection/ios/v3/?ver=swift
+
+
+
+
+
+
+
+

@@ -49,6 +49,18 @@ class DatabaseManager {
             print ("Cannot create table: \(error)")
         }
     }
+    
+    func writeToDatabase () {
+        
+    }
+    
+    func readFromDatabase () {
+        
+    }
+    
+    
+    
+    
 }
 
 //class LocationList: LocationItem {

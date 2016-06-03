@@ -12,8 +12,10 @@ import CoreLocation
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
+    // RayWenderlich: Background App Refresh
     var locations = [MKPointAnnotation]()
     
+    // RayWenderlich: Background App Refresh
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -29,8 +31,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            if CLLocationManager.locationServicesEnabled() {
-        locationManager.startUpdatingLocation()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
         }
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,8 +44,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     }
 
 // MARK: - CLLocationManagerDelegate
-
+    
+    /// RayWenderlich: Background App Refresh
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+        
         // Add another annotation to the map.
         let annotation = MKPointAnnotation()
         annotation.coordinate = newLocation.coordinate
@@ -62,14 +66,29 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         
         if UIApplication.sharedApplication().applicationState == .Active {
             mapView.showAnnotations(locations, animated: true)
-        } else {
-            NSLog("App is backgrounded. New location is %@", newLocation)
-            let latitude = newLocation.coordinate.longitude
+            
+            let latitude = newLocation.coordinate.latitude
             let longitude = newLocation.coordinate.longitude
             let timestamp = newLocation.timestamp
             let speed = newLocation.speed
             
+            print("Using the application: \(latitude)")
+            print("Using the application: \(longitude)")
+            print("Using the application: \(timestamp)")
+            print("Using the application: \(speed)")
             
+        } else {
+            NSLog("App is backgrounded. New location is %@", newLocation)
+            
+            let latitude = newLocation.coordinate.latitude
+            let longitude = newLocation.coordinate.longitude
+            let timestamp = newLocation.timestamp
+            let speed = newLocation.speed
+            
+            print("Background location update: \(latitude)")
+            print("Background location update: \(longitude)")
+            print("Background location update: \(timestamp)")
+            print("Background location update: \(speed)")
         }
     }
 }
