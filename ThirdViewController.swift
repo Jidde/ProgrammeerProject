@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ThirdViewController: UIViewController {
     
     @IBOutlet var runOrBike: UISegmentedControl!
     @IBOutlet var CarOrPT: UISegmentedControl!
-    @IBOutlet var accuracyLevel: UISegmentedControl!    
+    @IBOutlet var accuracyLevel: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +26,27 @@ class ThirdViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func runOrBikeHandler(sender: AnyObject) {
+        
     }
-    */
+    
+    
+    @IBAction func carOrPTHandler(sender: AnyObject) {
+        
+    }
+    
+    /// https://www.raywenderlich.com/92428/background-modes-ios-swift-tutorial
+    @IBAction func accuracyHandler(sender: AnyObject) {
+        
+        let accuracyValues = [
+            kCLLocationAccuracyBest,
+            kCLLocationAccuracyNearestTenMeters,
+            kCLLocationAccuracyHundredMeters,
+            kCLLocationAccuracyKilometer]
+        
+        // locationManager.desiredAccuracy = accuracyValues[sender.selectedSegmentIndex];
+        
+    }
 
 }

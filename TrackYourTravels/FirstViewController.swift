@@ -19,6 +19,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.distanceFilter = 10
         manager.delegate = self
         manager.requestAlwaysAuthorization()
         
@@ -79,6 +80,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             
         } else {
             NSLog("App is backgrounded. New location is %@", newLocation)
+            mapView.showAnnotations(locations, animated: true)
             
             let latitude = newLocation.coordinate.latitude
             let longitude = newLocation.coordinate.longitude

@@ -34,6 +34,9 @@
                                     <segment title="100m"/>
                                     <segment title="1km"/>
                                 </segments>
+                                <connections>
+                                    <action selector="accuracyHandler:" destination="HgX-vd-HdE" eventType="valueChanged" id="rm1-b5-wwP"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="03Q-X7-lTs">
                                 <rect key="frame" x="216" y="159" width="168" height="29"/>
@@ -44,6 +47,9 @@
                                     <segment title="Run"/>
                                     <segment title="Bike"/>
                                 </segments>
+                                <connections>
+                                    <action selector="runOrBikeHandler:" destination="HgX-vd-HdE" eventType="valueChanged" id="X2E-an-a0v"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9FU-g9-Igg">
                                 <rect key="frame" x="186" y="216" width="229" height="29"/>
@@ -51,6 +57,9 @@
                                     <segment title="Car"/>
                                     <segment title="Public Transport"/>
                                 </segments>
+                                <connections>
+                                    <action selector="carOrPTHandler:" destination="HgX-vd-HdE" eventType="valueChanged" id="pKS-t7-5hL"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which level of accuracy do you prefer?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpb-F8-c1k">
                                 <rect key="frame" x="152" y="408" width="297" height="21"/>
@@ -85,6 +94,7 @@
                     <connections>
                         <outlet property="CarOrPT" destination="9FU-g9-Igg" id="NKF-vB-DKQ"/>
                         <outlet property="accuracyLevel" destination="uCc-f8-Ygx" id="TPS-Zl-1TP"/>
+                        <outlet property="carOrPTHandler" destination="9FU-g9-Igg" id="5re-OU-t20"/>
                         <outlet property="runOrBike" destination="03Q-X7-lTs" id="v4T-7w-Q8A"/>
                     </connections>
                 </viewController>

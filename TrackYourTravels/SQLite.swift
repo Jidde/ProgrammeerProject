@@ -50,11 +50,18 @@ class DatabaseManager {
         }
     }
     
-    func writeToDatabase () {
+    func writeToDatabase (time: String, lat: Double, long: Double, speed: Double) {
+        
+        
         
     }
     
-    func readFromDatabase () {
+    
+    
+    func readAllFromDatabase ()  {
+        
+        
+        
         
     }
     

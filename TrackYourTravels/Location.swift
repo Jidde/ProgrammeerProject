@@ -21,7 +21,7 @@ class Location: CLLocationManager, CLLocationManagerDelegate {
         manager.requestAlwaysAuthorization()
         
         return manager
-        
     }()
+    
 }
 

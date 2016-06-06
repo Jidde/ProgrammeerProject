@@ -8,6 +8,14 @@
 
 import Foundation
 
-class UserSetting {
+class UserSettings {
+    
+    var runOrBike = 0
+    var carOrPT = 0
+    var accuracy = 0
+    
+    
     
 }
+
+
