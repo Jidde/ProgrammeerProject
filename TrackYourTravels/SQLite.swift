@@ -56,8 +56,6 @@ class DatabaseManager {
         
     }
     
-    
-    
     func readAllFromDatabase ()  {
         
         

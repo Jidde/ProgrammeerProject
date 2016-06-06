@@ -70,13 +70,21 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             
             let latitude = newLocation.coordinate.latitude
             let longitude = newLocation.coordinate.longitude
-            let timestamp = newLocation.timestamp
+            let stamp = newLocation.timestamp
             let speed = newLocation.speed
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+            let timestamp = dateFormatter.stringFromDate(stamp)
+            
+            print(timestamp)
             
             print("Using the application: \(latitude)")
             print("Using the application: \(longitude)")
             print("Using the application: \(timestamp)")
             print("Using the application: \(speed)")
+            
+            //DatabaseManager.sharedInstance.writeToDatabase(timestamp, lat: latitude, long: longitude, speed: speed)
             
         } else {
             NSLog("App is backgrounded. New location is %@", newLocation)
