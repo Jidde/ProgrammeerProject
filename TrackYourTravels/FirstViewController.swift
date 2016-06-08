@@ -15,7 +15,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     // RayWenderlich: Background App Refresh
     var locations = [MKPointAnnotation]()
     
-    // RayWenderlich: Background App Refresh
+    // RayWenderlich: Background App Refresh, instance of CLLocation manager.
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -65,6 +65,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
 //            mapView.removeAnnotation(annotationToRemove)
 //        }
         
+        // If app is in foreground
         if UIApplication.sharedApplication().applicationState == .Active {
             mapView.showAnnotations(locations, animated: true)
             
@@ -84,21 +85,32 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
             print("Using the application: \(timestamp)")
             print("Using the application: \(speed)")
             
-            //DatabaseManager.sharedInstance.writeToDatabase(timestamp, lat: latitude, long: longitude, speed: speed)
+            DatabaseManager.sharedInstance.writeToDatabase(timestamp, lat: latitude, long: longitude, speed: speed)
             
-        } else {
+        }
+        // If app is in background
+        else {
             NSLog("App is backgrounded. New location is %@", newLocation)
             mapView.showAnnotations(locations, animated: true)
             
             let latitude = newLocation.coordinate.latitude
             let longitude = newLocation.coordinate.longitude
-            let timestamp = newLocation.timestamp
+            let stamp = newLocation.timestamp
             let speed = newLocation.speed
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+            let timestamp = dateFormatter.stringFromDate(stamp)
+            
+            print(timestamp)
             
             print("Background location update: \(latitude)")
             print("Background location update: \(longitude)")
             print("Background location update: \(timestamp)")
             print("Background location update: \(speed)")
+            
+            DatabaseManager.sharedInstance.writeToDatabase(timestamp, lat: latitude, long: longitude, speed: speed)
+
         }
     }
 }

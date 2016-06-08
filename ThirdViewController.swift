@@ -26,14 +26,14 @@ class ThirdViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    /// Handler for segmented control.
     @IBAction func runOrBikeHandler(sender: AnyObject) {
-        
+        UserSettings().setValueBike(sender.selectedIndex)
     }
     
-    
+    /// Handler for segmented control.
     @IBAction func carOrPTHandler(sender: AnyObject) {
-        
+        UserSettings().setValueCar(sender.selectedIndex)
     }
     
     /// https://www.raywenderlich.com/92428/background-modes-ios-swift-tutorial
@@ -45,6 +45,7 @@ class ThirdViewController: UIViewController {
             kCLLocationAccuracyHundredMeters,
             kCLLocationAccuracyKilometer]
         
+            
         // locationManager.desiredAccuracy = accuracyValues[sender.selectedSegmentIndex];
         
     }

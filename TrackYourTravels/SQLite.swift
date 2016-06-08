@@ -52,15 +52,31 @@ class DatabaseManager {
     
     func writeToDatabase (time: String, lat: Double, long: Double, speed: Double) {
         
-        
-        
+        let insert = locationInfo.insert(timestamp <- time, latitude <- lat, longitude <- long, velocity <- speed)
+        do {
+            let rowID = try database!.run(insert)
+            print (rowID)
+        } catch {
+            print("Error creating to do: \(error)")
+        }
     }
     
-    func readAllFromDatabase ()  {
+    func readAllFromDatabase () -> (LocationList) {
+        
+        let locations = LocationList?()
         
         
+        if database != nil {
+            do {
+                for location in try database!.prepare(locationInfo)  {
+                    locations.
+                }
+            } catch {
+                print("Could not retrieve data from database: \(error)")
+            }
+        }
         
-        
+        return (locations!)
     }
     
     
@@ -68,26 +84,35 @@ class DatabaseManager {
     
 }
 
-//class LocationList: LocationItem {
-//    
-//    
-//}
-//
-//class LocationItem {
-//    
-//    private var timestamp: String
-//    private var latitude: Double
-//    private var longitude: Double
-//    private var velocity: Double
-// 
-//    init (timestamp: String, latitude: Double, longitude: Double, velocity: Double) {
-//        self.latitude = latitude
-//        self.longitude = longitude
-//        self.timestamp = timestamp
-//        self.velocity = velocity
-//    }
-//}
-//
+class LocationList {
+    
+    private var locations = [LocationItem]()
+    
+    init(item: [LocationItem]) {
+        self.locations = item
+    }
+    
+    
+    
+}
+
+
+
+class LocationItem {
+    
+    private var timestamp: String
+    private var latitude: Double
+    private var longitude: Double
+    private var velocity: Double
+ 
+    init (timestamp: String, latitude: Double, longitude: Double, velocity: Double) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.timestamp = timestamp
+        self.velocity = velocity
+    }
+}
+
 
 
 

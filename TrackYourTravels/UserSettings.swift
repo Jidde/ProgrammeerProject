@@ -14,7 +14,21 @@ class UserSettings {
     var carOrPT = 0
     var accuracy = 0
     
+    func setValueBike (slow: Int) {
+        runOrBike = slow
+    }
     
+    func setValueCar (fast: Int) {
+        carOrPT = fast
+    }
+    
+    func setValueAccuracy (acc: Int) {
+        accuracy = acc
+    }
+    
+    func returnValues () ->  (Int, Int, Int) {
+        return (runOrBike, carOrPT, accuracy)
+    }
     
 }
 

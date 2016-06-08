@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Connect to SQLite database and create table if it doesn't exist.
         DatabaseManager.sharedInstance.connectToDatabase()
         DatabaseManager.sharedInstance.createTable()
         
