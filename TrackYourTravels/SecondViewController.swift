@@ -13,16 +13,19 @@ import CoreGraphics
 class SecondViewController: UIViewController {
     
     @IBOutlet var periodSetter: UISegmentedControl!
-    
-    
-    
-    
-    
-    
+    @IBOutlet var label: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
+        
+        for l in locations {
+            label.text = l.timestamp
+        }
     }
 
     override func didReceiveMemoryWarning() {

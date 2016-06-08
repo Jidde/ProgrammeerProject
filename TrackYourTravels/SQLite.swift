@@ -5,10 +5,10 @@
 //  Created by Jidde Koekoek on 01/06/16.
 //  Copyright © 2016 Jidde Koekoek. All rights reserved.
 //
+//  Database management
 
 import Foundation
 import SQLite
-
 
 class DatabaseManager {
     
@@ -82,19 +82,14 @@ class DatabaseManager {
         }
         return (locations)
     }
-    
-    
-    
-    
 }
-
 
 class LocationItem {
     
-    private var timestamp: String
-    private var latitude: Double
-    private var longitude: Double
-    private var velocity: Double
+    var timestamp: String
+    var latitude: Double
+    var longitude: Double
+    var velocity: Double
  
     init (timestamp: String, latitude: Double, longitude: Double, velocity: Double) {
         self.latitude = latitude

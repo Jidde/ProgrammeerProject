@@ -166,6 +166,12 @@
                                     <segment title="Month"/>
                                 </segments>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epq-FE-XXu">
+                                <rect key="frame" x="279" y="289" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -174,15 +180,18 @@
                             <constraint firstItem="52U-xr-v6r" firstAttribute="top" secondItem="ATp-3u-tfX" secondAttribute="bottom" constant="19" id="3Zb-jn-2Ts"/>
                             <constraint firstItem="myI-9e-1Yg" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="30" id="75y-W3-X4t"/>
                             <constraint firstItem="ATp-3u-tfX" firstAttribute="centerX" secondItem="myI-9e-1Yg" secondAttribute="centerX" id="9VF-ky-BUv"/>
+                            <constraint firstItem="epq-FE-XXu" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="A3p-ae-kGW"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="myI-9e-1Yg" secondAttribute="bottom" id="Ops-df-2BM"/>
                             <constraint firstAttribute="trailing" secondItem="myI-9e-1Yg" secondAttribute="trailing" id="nTY-bZ-7EY"/>
                             <constraint firstAttribute="trailing" secondItem="52U-xr-v6r" secondAttribute="trailing" constant="20" id="pd1-yS-gDO"/>
+                            <constraint firstItem="epq-FE-XXu" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="tkI-Kw-jRl"/>
                             <constraint firstItem="52U-xr-v6r" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="xhn-xT-1du"/>
                             <constraint firstItem="ATp-3u-tfX" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="zDP-s0-xlZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="second" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="label" destination="epq-FE-XXu" id="Uzj-8g-Cyb"/>
                         <outlet property="periodSetter" destination="52U-xr-v6r" id="LcF-6Y-cW9"/>
                     </connections>
                 </viewController>

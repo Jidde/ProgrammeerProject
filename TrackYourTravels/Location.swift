@@ -17,6 +17,7 @@ class Location: CLLocationManager, CLLocationManagerDelegate {
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.distanceFilter = 100
         manager.delegate = self
         manager.requestAlwaysAuthorization()
         
