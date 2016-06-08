@@ -61,41 +61,32 @@ class DatabaseManager {
         }
     }
     
-    func readAllFromDatabase () -> (LocationList) {
+    func readAllFromDatabase () -> (Array<LocationItem>) {
         
-        let locations = LocationList?()
-        
-        
+        var locations = Array<LocationItem>()
+    
         if database != nil {
             do {
                 for location in try database!.prepare(locationInfo)  {
-                    locations.
+                    
+                    let time = location.get(timestamp)
+                    let lat = location.get(latitude)
+                    let long = location.get(longitude)
+                    let velo = location.get(velocity)
+                    let loc = LocationItem.init(timestamp: time!, latitude: lat!, longitude: long!, velocity: velo!)
+                    locations.append(loc)
                 }
             } catch {
                 print("Could not retrieve data from database: \(error)")
             }
         }
-        
-        return (locations!)
+        return (locations)
     }
     
     
     
     
 }
-
-class LocationList {
-    
-    private var locations = [LocationItem]()
-    
-    init(item: [LocationItem]) {
-        self.locations = item
-    }
-    
-    
-    
-}
-
 
 
 class LocationItem {
