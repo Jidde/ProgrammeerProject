@@ -39,6 +39,17 @@ https://developers.google.com/analytics/devguides/collection/ios/v3/?ver=swift
 
 
 
+NSUserDefaults.default
+
+PausesLocationUpdatesAutomatically
+
+
+
+
+
+
+
+
 
 
 

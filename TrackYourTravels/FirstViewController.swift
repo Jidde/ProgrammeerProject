@@ -13,13 +13,13 @@ import CoreLocation
 class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     // RayWenderlich: Background App Refresh
-    var locations = [MKPointAnnotation]()
+    var locationss = [MKPointAnnotation]()
     
     // RayWenderlich: Background App Refresh, instance of CLLocation manager.
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.distanceFilter = 100
+        manager.distanceFilter = 50
         manager.delegate = self
         manager.requestAlwaysAuthorization()
         
@@ -32,6 +32,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         if CLLocationManager.locationServicesEnabled() {
+            
             locationManager.startMonitoringSignificantLocationChanges()
         }
         
@@ -45,62 +46,34 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
 
 // MARK: - CLLocationManagerDelegate
     
-    /// RayWenderlich: Background App Refresh
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        // Add another annotation to the map.
         let annotation = MKPointAnnotation()
-        annotation.coordinate = newLocation.coordinate
+        let location = (locations.last?.coordinate)!
+        annotation.coordinate = location
         
-        // Also add to our map so we can remove old values later
-        locations.append(annotation)
+        locationss.append(annotation)
         
-        // Remove values if the array is too big
-//        while locations.count > 100 {
-//            let annotationToRemove = locations.first!
-//            locations.removeAtIndex(0)
-//            
-//            // Also remove from the map
-//            mapView.removeAnnotation(annotationToRemove)
-//        }
-        
-        // If app is in foreground
-        if UIApplication.sharedApplication().applicationState == .Active {
-            mapView.showAnnotations(locations, animated: true)
+        // Update map in all states and push to database.
+        if UIApplication.sharedApplication().applicationState == .Active ||
+        UIApplication.sharedApplication().applicationState == .Background ||
+        UIApplication.sharedApplication().applicationState == .Inactive {
             
-            let latitude = newLocation.coordinate.latitude
-            let longitude = newLocation.coordinate.longitude
-            let stamp = newLocation.timestamp
-            let speed = newLocation.speed
+            mapView.showAnnotations(locationss, animated: true)
             
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
-            let timestamp = dateFormatter.stringFromDate(stamp)
+            let latitude = location.latitude
+            let longitude = location.longitude
+            let stamp = locations.last!.timestamp
+            let speed = locations.last!.speed
             
-            DatabaseManager.sharedInstance.writeToDatabase(timestamp, lat: latitude, long: longitude, speed: speed)
-        }
-        // If app is in background
-        else {
-            NSLog("App is backgrounded. New location is %@", newLocation)
-            mapView.showAnnotations(locations, animated: true)
-            
-            let latitude = newLocation.coordinate.latitude
-            let longitude = newLocation.coordinate.longitude
-            let stamp = newLocation.timestamp
-            let speed = newLocation.speed
-            
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
-            let timestamp = dateFormatter.stringFromDate(stamp)
-            
-            print("Background location update: \(latitude)")
-            print("Background location update: \(longitude)")
-            print("Background location update: \(timestamp)")
-            print("Background location update: \(speed)")
-            
-            DatabaseManager.sharedInstance.writeToDatabase(timestamp, lat: latitude, long: longitude, speed: speed)
+            DatabaseManager.sharedInstance.writeToDatabase(stamp, lat: latitude, long: longitude, speed: speed)
         }
     }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        
+    }
+    
 }
 
 

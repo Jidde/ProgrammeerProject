@@ -14,7 +14,7 @@ class SecondViewController: UIViewController {
     
     @IBOutlet var periodSetter: UISegmentedControl!
     @IBOutlet var label: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,8 +23,8 @@ class SecondViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
         
-        for l in locations {
-            label.text = l.timestamp
+        for location in locations {
+            label.text = location.timestamp
         }
     }
 

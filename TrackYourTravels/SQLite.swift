@@ -50,9 +50,13 @@ class DatabaseManager {
         }
     }
     
-    func writeToDatabase (time: String, lat: Double, long: Double, speed: Double) {
+    func writeToDatabase (time: NSDate, lat: Double, long: Double, speed: Double) {
         
-        let insert = locationInfo.insert(timestamp <- time, latitude <- lat, longitude <- long, velocity <- speed)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        let timestampString = dateFormatter.stringFromDate(time)
+        
+        let insert = locationInfo.insert(timestamp <- timestampString, latitude <- lat, longitude <- long, velocity <- speed)
         do {
             let rowID = try database!.run(insert)
             print (rowID)
@@ -84,20 +88,7 @@ class DatabaseManager {
     }
 }
 
-class LocationItem {
-    
-    var timestamp: String
-    var latitude: Double
-    var longitude: Double
-    var velocity: Double
- 
-    init (timestamp: String, latitude: Double, longitude: Double, velocity: Double) {
-        self.latitude = latitude
-        self.longitude = longitude
-        self.timestamp = timestamp
-        self.velocity = velocity
-    }
-}
+
 
 
 

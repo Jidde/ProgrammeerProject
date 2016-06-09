@@ -10,11 +10,15 @@ import Foundation
 
 class Statistics {
     
-    func getCurrentDate () {
-        let currentDate = NSDate()
-        let dateFormatter = NSDateFormatter()
+    let currentDate = NSDate()
+    let dateFormatter = NSDateFormatter()
+    
+    init () {
         dateFormatter.dateFormat = "MM-dd-yyyy"
     }
 
+    
+    
+    
 }
 

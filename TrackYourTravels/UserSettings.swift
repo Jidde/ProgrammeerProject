@@ -8,7 +8,12 @@
 
 import Foundation
 
+
 class UserSettings {
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    
     
     var runOrBike = 0
     var carOrPT = 0

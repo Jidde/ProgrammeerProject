@@ -36,7 +36,7 @@ class ThirdViewController: UIViewController {
         UserSettings().setValueCar(sender.selectedIndex)
     }
     
-    /// https://www.raywenderlich.com/92428/background-modes-ios-swift-tutorial
+    /// Ray Wenderlich: Background App Refresh.
     @IBAction func accuracyHandler(sender: AnyObject) {
         
         let accuracyValues = [
