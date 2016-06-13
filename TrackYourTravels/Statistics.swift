@@ -9,31 +9,25 @@
 import Foundation
 
 class Statistics {
-    
-    let currentDate = NSDate()
-    let dateFormatter = NSDateFormatter()
-    
-    func daysBetweenDates(startDate: String, endDate: NSDate) -> Int {
+
+    /// http://stackoverflow.com/questions/24723431/swift-days-between-two-nsdates
+    func daysBetweenDates(startDate: String) -> Int {
+        
+        let currentDate = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
         
         let d = dateFormatter.dateFromString(startDate)
         
         let calendar = NSCalendar.currentCalendar()
         
-        let components = calendar.components([.Day], fromDate: d!, toDate: endDate, options: [])
+        let components = calendar.components([.Day], fromDate: d!, toDate: currentDate, options: [])
         
         return components.day
     }
     
     
-        // is date in database higher than the start of current date?
-//        if d!.compare(startOfCurrentDate) == NSComparisonResult.OrderedDescending {
-//            print("Yes")
-//            return true
-//        } else {
-//            print("No")
-//            return false
-//        }
-//        }
+    
     
 }
 

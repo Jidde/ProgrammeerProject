@@ -15,12 +15,12 @@ class SecondViewController: UIViewController {
     @IBOutlet var periodSetter: UISegmentedControl!
     @IBOutlet var label: UILabel!
     
+    var timestampArray: Array<LocationItem> = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let statistics = Statistics()
-        statistics.dateToday("06-13-2016 10:11:27")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,8 +29,14 @@ class SecondViewController: UIViewController {
 
         for location in locations {
             label.text = location.timestamp
-            print(location.timestamp, location.velocity, location.latitude, location.longitude)
+            //print(location.timestamp, location.velocity, location.latitude, location.longitude)
+            
+            let statistics = Statistics()
+            if statistics.daysBetweenDates(location.timestamp) == 0 {
+                timestampArray.append(location)
+            }
         }
+        print(timestampArray)
     }
 
     override func didReceiveMemoryWarning() {
