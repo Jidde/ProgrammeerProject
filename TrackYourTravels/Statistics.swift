@@ -13,12 +13,27 @@ class Statistics {
     let currentDate = NSDate()
     let dateFormatter = NSDateFormatter()
     
-    init () {
-        dateFormatter.dateFormat = "MM-dd-yyyy"
+    func daysBetweenDates(startDate: String, endDate: NSDate) -> Int {
+        
+        let d = dateFormatter.dateFromString(startDate)
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([.Day], fromDate: d!, toDate: endDate, options: [])
+        
+        return components.day
     }
-
     
     
+        // is date in database higher than the start of current date?
+//        if d!.compare(startOfCurrentDate) == NSComparisonResult.OrderedDescending {
+//            print("Yes")
+//            return true
+//        } else {
+//            print("No")
+//            return false
+//        }
+//        }
     
 }
 

@@ -18,13 +18,18 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let statistics = Statistics()
+        statistics.dateToday("06-13-2016 10:11:27")
     }
     
     override func viewWillAppear(animated: Bool) {
-        let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
         
+        let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
+
         for location in locations {
             label.text = location.timestamp
+            print(location.timestamp, location.velocity, location.latitude, location.longitude)
         }
     }
 
@@ -32,7 +37,5 @@ class SecondViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
