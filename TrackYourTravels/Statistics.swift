@@ -26,8 +26,32 @@ class Statistics {
         return components.day
     }
     
+    func timeBetweenDates(date1: String, date2: String) -> Int {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        
+        let d1 = dateFormatter.dateFromString(date1)
+        let d2 = dateFormatter.dateFromString(date2)
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let components = calendar.components([.Minute], fromDate: d1!, toDate: d2!, options: [])
+        
+        return components.minute
+    }
+    
+    
+    
+    
     
     
     
 }
+
+
+
+
+
+
 

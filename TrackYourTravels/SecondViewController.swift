@@ -15,7 +15,6 @@ class SecondViewController: UIViewController {
     @IBOutlet var periodSetter: UISegmentedControl!
     @IBOutlet var label: UILabel!
     
-    var timestampArray: Array<LocationItem> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +24,7 @@ class SecondViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
+        var timestampArray: Array<LocationItem> = []
         let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
 
         for location in locations {
@@ -36,7 +36,15 @@ class SecondViewController: UIViewController {
                 timestampArray.append(location)
             }
         }
-        print(timestampArray)
+        //print(timestampArray)
+        for index in 0...(timestampArray.count - 2) {
+            let statistics = Statistics()
+            let date1 = timestampArray[index].timestamp
+            let date2 = timestampArray[index + 1].timestamp
+            let minute = statistics.timeBetweenDates(date1, date2: date2)
+            print(timestampArray[index])
+            print(minute)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,4 +52,10 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 }
+
+
+
+
+
+
 
