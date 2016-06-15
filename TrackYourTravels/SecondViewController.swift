@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import CoreGraphics
 
 class SecondViewController: UIViewController {
     
