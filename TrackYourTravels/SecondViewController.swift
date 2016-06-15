@@ -15,6 +15,8 @@ class SecondViewController: UIViewController {
     @IBOutlet var periodSetter: UISegmentedControl!
     @IBOutlet var label: UILabel!
     
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var graphView: GraphView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +39,26 @@ class SecondViewController: UIViewController {
             }
         }
         //print(timestampArray)
+        var totalTime = 0
+        
         for index in 0...(timestampArray.count - 2) {
             let statistics = Statistics()
             let date1 = timestampArray[index].timestamp
             let date2 = timestampArray[index + 1].timestamp
             let minute = statistics.timeBetweenDates(date1, date2: date2)
-            print(timestampArray[index])
+            
+            if minute < 30 {
+                totalTime = totalTime + statistics.timeBetweenDates(date1, date2: date2)
+            }
+            
+            print(date1)
+            print(date2)
             print(minute)
+            print(timestampArray[index].velocity)
+            print(timestampArray[index].latitude)
+            print(timestampArray[index].longitude)
         }
+        print(totalTime)
     }
 
     override func didReceiveMemoryWarning() {

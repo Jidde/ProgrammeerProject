@@ -26,6 +26,7 @@ class Statistics {
         return components.day
     }
     
+    /// calculates the time between to dates. 
     func timeBetweenDates(date1: String, date2: String) -> Int {
         
         let dateFormatter = NSDateFormatter()

@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 
-class Graph: UIView {
+class GraphView: UIView {
 
     /*
     // Only override drawRect: if you perform custom drawing.

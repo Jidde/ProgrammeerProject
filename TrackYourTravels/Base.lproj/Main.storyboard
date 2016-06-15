@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Account-->
@@ -149,9 +150,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myI-9e-1Yg">
-                                <rect key="frame" x="0.0" y="50" width="600" height="501"/>
-                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ByP-NJ-xnb" userLabel="ContainerView">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7sb-uJ-e3c" userLabel="GraphView">
+                                        <rect key="frame" x="0.0" y="25" width="300" height="250"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.85511780690000005" blue="0.22074880760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Hzb-Kl-P7W"/>
+                                    <constraint firstAttribute="width" secondItem="ByP-NJ-xnb" secondAttribute="height" multiplier="1:1" id="qYn-PG-Hxt"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATp-3u-tfX">
                                 <rect key="frame" x="259" y="28" width="83" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -176,21 +188,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="52U-xr-v6r" firstAttribute="centerX" secondItem="ATp-3u-tfX" secondAttribute="centerX" id="17F-s7-cEV"/>
-                            <constraint firstItem="myI-9e-1Yg" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="384-Ia-MIz"/>
                             <constraint firstItem="52U-xr-v6r" firstAttribute="top" secondItem="ATp-3u-tfX" secondAttribute="bottom" constant="19" id="3Zb-jn-2Ts"/>
-                            <constraint firstItem="myI-9e-1Yg" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="30" id="75y-W3-X4t"/>
-                            <constraint firstItem="ATp-3u-tfX" firstAttribute="centerX" secondItem="myI-9e-1Yg" secondAttribute="centerX" id="9VF-ky-BUv"/>
                             <constraint firstItem="epq-FE-XXu" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="A3p-ae-kGW"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="myI-9e-1Yg" secondAttribute="bottom" id="Ops-df-2BM"/>
-                            <constraint firstAttribute="trailing" secondItem="myI-9e-1Yg" secondAttribute="trailing" id="nTY-bZ-7EY"/>
+                            <constraint firstItem="ByP-NJ-xnb" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="jVJ-b4-PJi"/>
                             <constraint firstAttribute="trailing" secondItem="52U-xr-v6r" secondAttribute="trailing" constant="20" id="pd1-yS-gDO"/>
                             <constraint firstItem="epq-FE-XXu" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="tkI-Kw-jRl"/>
                             <constraint firstItem="52U-xr-v6r" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="20" id="xhn-xT-1du"/>
+                            <constraint firstItem="ByP-NJ-xnb" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="yD5-gT-qCy"/>
                             <constraint firstItem="ATp-3u-tfX" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="zDP-s0-xlZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="second" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="containerView" destination="ByP-NJ-xnb" id="7T6-71-Gwp"/>
+                        <outlet property="graphView" destination="7sb-uJ-e3c" id="9qd-dR-XjA"/>
                         <outlet property="label" destination="epq-FE-XXu" id="Uzj-8g-Cyb"/>
                         <outlet property="periodSetter" destination="52U-xr-v6r" id="LcF-6Y-cW9"/>
                     </connections>
