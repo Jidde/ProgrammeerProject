@@ -12,7 +12,6 @@ import MapKit
 class SecondViewController: UIViewController {
     
     @IBOutlet var periodSetter: UISegmentedControl!
-    @IBOutlet var label: UILabel!
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var graphView: GraphView!
@@ -36,7 +35,6 @@ class SecondViewController: UIViewController {
         let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
 
         for location in locations {
-            label.text = location.timestamp
             //print(location.timestamp, location.velocity, location.latitude, location.longitude)
             
             let statistics = Statistics()
@@ -86,7 +84,7 @@ class SecondViewController: UIViewController {
         //2 - indicate that the graph needs to be redrawn
         graphView.setNeedsDisplay()
         
-        maximum.text = "\(graphView.graphPoints.maxElement())"
+        maximum.text = "\(graphView.graphPoints.maxElement()!)"
         
         //3 - calculate average from graphPoints
         let averageText = graphView.graphPoints.reduce(0, combine: +)
@@ -116,11 +114,12 @@ class SecondViewController: UIViewController {
                 if weekday == 7 {
                     weekday = 0
                 }
-                labelView.text = days[weekday]
                 weekday -= 1
+
                 if weekday < 0 {
                     weekday = days.count - 1
                 }
+                labelView.text = days[weekday]
             }
         }
     }
