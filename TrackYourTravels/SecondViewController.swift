@@ -17,6 +17,13 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var graphView: GraphView!
     
+    // Graph labels
+    @IBOutlet weak var timeTraveled: UILabel!
+    @IBOutlet weak var average: UILabel!
+    @IBOutlet weak var avarageNumber: UILabel!
+    @IBOutlet weak var maximum: UILabel!
+    @IBOutlet weak var minimum: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,7 +40,7 @@ class SecondViewController: UIViewController {
             //print(location.timestamp, location.velocity, location.latitude, location.longitude)
             
             let statistics = Statistics()
-            if statistics.daysBetweenDates(location.timestamp) == 0 {
+            if statistics.daysBetweenDates(location.timestamp) <= 7 {
                 timestampArray.append(location)
             }
         }
@@ -58,11 +65,64 @@ class SecondViewController: UIViewController {
             print(timestampArray[index].longitude)
         }
         print(totalTime)
+        
+        setupGraphDisplay()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupGraphDisplay() {
+        
+        //Use 7 days for graph - can use any number,
+        //but labels and sample data are set up for 7 days
+        let noOfDays:Int = 7
+        
+        //1 - replace last day with today's actual data
+        //graphView.graphPoints[graphView.graphPoints.count-1] = counterView.counter
+        
+        //2 - indicate that the graph needs to be redrawn
+        graphView.setNeedsDisplay()
+        
+        maximum.text = "\(graphView.graphPoints.maxElement())"
+        
+        //3 - calculate average from graphPoints
+        let averageText = graphView.graphPoints.reduce(0, combine: +)
+            / graphView.graphPoints.count
+        average.text = "Average:"
+        avarageNumber.text = "\(averageText)"
+        
+        //set up labels
+        //day of week labels are set up in storyboard with tags
+        //today is last day of the array need to go backwards
+        
+        //4 - get today's day number
+        let dateFormatter = NSDateFormatter()
+        let calendar = NSCalendar.currentCalendar()
+        let componentOptions:NSCalendarUnit = .Weekday
+        let components = calendar.components(componentOptions,
+                                             fromDate: NSDate())
+        var weekday = components.weekday
+        
+        let days = ["S", "S", "M", "T", "W", "T", "F"]
+        
+        //5 - set up the day name labels with correct day
+        for i in  (1...days.count).reverse() {
+            if let labelView = graphView.viewWithTag(i) as? UILabel {
+                //print(i)
+                print(weekday)
+                if weekday == 7 {
+                    weekday = 0
+                }
+                labelView.text = days[weekday]
+                weekday -= 1
+                if weekday < 0 {
+                    weekday = days.count - 1
+                }
+            }
+        }
     }
 }
 
