@@ -38,7 +38,7 @@ class SecondViewController: UIViewController {
             //print(location.timestamp, location.velocity, location.latitude, location.longitude)
             
             let statistics = Statistics()
-            if statistics.daysBetweenDates(location.timestamp) <= 7 {
+            if statistics.daysBetweenDates(location.timestamp) < 7 {
                 timestampArray.append(location)
             }
         }
@@ -55,14 +55,14 @@ class SecondViewController: UIViewController {
                 totalTime = totalTime + statistics.timeBetweenDates(date1, date2: date2)
             }
             
-            print(date1)
-            print(date2)
-            print(minute)
-            print(timestampArray[index].velocity)
-            print(timestampArray[index].latitude)
-            print(timestampArray[index].longitude)
+//            print(date1)
+//            print(date2)
+//            print(minute)
+//            print(timestampArray[index].velocity)
+//            print(timestampArray[index].latitude)
+//            print(timestampArray[index].longitude)
         }
-        print(totalTime)
+//        print(totalTime)
         
         setupGraphDisplay()
     }
@@ -87,8 +87,8 @@ class SecondViewController: UIViewController {
         maximum.text = "\(graphView.graphPoints.maxElement()!)"
         
         //3 - calculate average from graphPoints
-        let averageText = graphView.graphPoints.reduce(0, combine: +)
-            / graphView.graphPoints.count
+        let averageText = graphView.statistics.reduce(0, combine: +)
+            / graphView.statistics.count
         average.text = "Average:"
         avarageNumber.text = "\(averageText)"
         
@@ -109,8 +109,6 @@ class SecondViewController: UIViewController {
         //5 - set up the day name labels with correct day
         for i in  (1...days.count).reverse() {
             if let labelView = graphView.viewWithTag(i) as? UILabel {
-                //print(i)
-                print(weekday)
                 if weekday == 7 {
                     weekday = 0
                 }

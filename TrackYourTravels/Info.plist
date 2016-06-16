@@ -37,7 +37,7 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-		<string>location-service</string>
+		<string>location-services</string>
 	</array>
 	<key>UIStatusBarTintParameters</key>
 	<dict>

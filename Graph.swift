@@ -12,6 +12,8 @@ import UIKit
 
 @IBDesignable class GraphView: UIView {
     
+    let statistics = Statistics().returnWeekTimeArray()
+        
     //Weekly sample data
     var graphPoints:[Int] = [4, 2, 6, 4, 5, 8, 3]
 
@@ -165,4 +167,6 @@ import UIKit
         linePath.stroke()
     }
 }
+
+
 

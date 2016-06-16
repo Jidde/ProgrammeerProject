@@ -42,13 +42,59 @@ class Statistics {
         return components.minute
     }
     
-    
-    
-    
-    
-    
-    
+    /// return the average traveled time and the time traveled per day (in 1 week)
+    func returnWeekTimeArray () -> Array<Int> {
+        
+        let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
+        let days = 7
+        var timeBetweenTravels : Array<Int> = []
+        var dailyTimestampArray: Array<String>
+        var timeTraveledPerWeek: Array<Int> = []
+
+        // Loop over the different days.
+        for index in 0...(days - 1) {
+            
+            var totalTime = 0
+            dailyTimestampArray = []
+            
+            for location in locations {
+                    if daysBetweenDates(location.timestamp) == index {
+                        dailyTimestampArray.append(location.timestamp)
+                    }
+                }
+            
+                // Loooop over all the timestamps per day.
+                for index in 0...(dailyTimestampArray.count - 2) {
+                    
+                    let date1 = dailyTimestampArray[index]
+                    let date2 = dailyTimestampArray[index + 1]
+                    let minute = timeBetweenDates(date1, date2: date2)
+                    
+                    // If there is more than 30 minutes between a timestamp is registered as 'not traveling'
+                    if minute < 30 {
+                        timeBetweenTravels.append(minute)
+                        totalTime += timeBetweenDates(date1, date2: date2)
+                    }
+                }
+            timeTraveledPerWeek.append(totalTime)
+        }
+        print(timeTraveledPerWeek)
+        return (timeTraveledPerWeek)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
