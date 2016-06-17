@@ -13,10 +13,7 @@ import UIKit
 @IBDesignable class GraphView: UIView {
     
     let statistics = Statistics().returnWeekTimeArray()
-        
-    //Weekly sample data
-    var graphPoints:[Int] = [4, 2, 6, 4, 5, 8, 3]
-
+    
     //1 - the properties for the gradient
     @IBInspectable var startColor: UIColor = UIColor.redColor()
     @IBInspectable var endColor: UIColor = UIColor.greenColor()
@@ -58,10 +55,10 @@ import UIKit
         
         //calculate the x point
         let margin:CGFloat = 20.0
-        var columnXPoint = { (column:Int) -> CGFloat in
+        let columnXPoint = { (column:Int) -> CGFloat in
             //Calculate gap between points
             let spacer = (width - margin*2 - 4) /
-                CGFloat((self.graphPoints.count - 1))
+                CGFloat((self.statistics.count - 1))
             var x:CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -71,30 +68,29 @@ import UIKit
         let topBorder:CGFloat = 60
         let bottomBorder:CGFloat = 50
         let graphHeight = height - topBorder - bottomBorder
-        let maxValue = graphPoints.maxElement()
-        var columnYPoint = { (graphPoint:Int) -> CGFloat in
-            var y:CGFloat = CGFloat(graphPoint) /
+        let maxValue = statistics.maxElement()
+        let columnYPoint = { (statistics:Int) -> CGFloat in
+            var y:CGFloat = CGFloat(statistics) /
                 CGFloat(maxValue!) * graphHeight
             y = graphHeight + topBorder - y // Flip the graph
             return y
         }
         
         // draw the line graph
-        
         UIColor.whiteColor().setFill()
         UIColor.whiteColor().setStroke()
         
         //set up the points line
-        var graphPath = UIBezierPath()
+        let graphPath = UIBezierPath()
         //go to start of line
         graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
-            y:columnYPoint(graphPoints[0])))
+            y:columnYPoint(statistics[0])))
         
         //add points for each item in the graphPoints array
         //at the correct (x, y) for the point
-        for i in 1..<graphPoints.count {
+        for i in 1..<statistics.count {
             let nextPoint = CGPoint(x:columnXPoint(i),
-                                    y:columnYPoint(graphPoints[i]))
+                                    y:columnYPoint(statistics[i]))
             graphPath.addLineToPoint(nextPoint)
         }
         
@@ -104,11 +100,11 @@ import UIKit
         CGContextSaveGState(context)
         
         //2 - make a copy of the path
-        var clippingPath = graphPath.copy() as! UIBezierPath
+        let clippingPath = graphPath.copy() as! UIBezierPath
         
         //3 - add lines to the copied path to complete the clip area
         clippingPath.addLineToPoint(CGPoint(
-            x: columnXPoint(graphPoints.count - 1),
+            x: columnXPoint(statistics.count - 1),
             y:height))
         clippingPath.addLineToPoint(CGPoint(
             x:columnXPoint(0),
@@ -130,8 +126,8 @@ import UIKit
         graphPath.stroke()
         
         //Draw the circles on top of graph stroke
-        for i in 0..<graphPoints.count {
-            var point = CGPoint(x:columnXPoint(i), y:columnYPoint(graphPoints[i]))
+        for i in 0..<statistics.count {
+            var point = CGPoint(x:columnXPoint(i), y:columnYPoint(statistics[i]))
             point.x -= 5.0/2
             point.y -= 5.0/2
             
@@ -142,7 +138,7 @@ import UIKit
         }
         
         //Draw horizontal graph lines on the top of everything
-        var linePath = UIBezierPath()
+        let linePath = UIBezierPath()
         
         //top line
         linePath.moveToPoint(CGPoint(x:margin, y: topBorder))

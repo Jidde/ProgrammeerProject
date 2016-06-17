@@ -59,10 +59,11 @@ class Statistics {
             
             for location in locations {
                     if daysBetweenDates(location.timestamp) == index {
-                        dailyTimestampArray.append(location.timestamp)
+                        dailyTimestampArray.append(location.timestamp)                        
                     }
                 }
             
+            if dailyTimestampArray.count > 2 {
                 // Loooop over all the timestamps per day.
                 for index in 0...(dailyTimestampArray.count - 2) {
                     
@@ -77,6 +78,7 @@ class Statistics {
                     }
                 }
             timeTraveledPerWeek.append(totalTime)
+            }
         }
         print(timeTraveledPerWeek)
         return (timeTraveledPerWeek)

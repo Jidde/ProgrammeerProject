@@ -54,15 +54,7 @@ class SecondViewController: UIViewController {
             if minute < 30 {
                 totalTime = totalTime + statistics.timeBetweenDates(date1, date2: date2)
             }
-            
-//            print(date1)
-//            print(date2)
-//            print(minute)
-//            print(timestampArray[index].velocity)
-//            print(timestampArray[index].latitude)
-//            print(timestampArray[index].longitude)
         }
-//        print(totalTime)
         
         setupGraphDisplay()
     }
@@ -74,17 +66,13 @@ class SecondViewController: UIViewController {
     
     func setupGraphDisplay() {
         
-        //Use 7 days for graph - can use any number,
-        //but labels and sample data are set up for 7 days
-        let noOfDays:Int = 7
-        
         //1 - replace last day with today's actual data
         //graphView.graphPoints[graphView.graphPoints.count-1] = counterView.counter
         
         //2 - indicate that the graph needs to be redrawn
         graphView.setNeedsDisplay()
         
-        maximum.text = "\(graphView.graphPoints.maxElement()!)"
+        maximum.text = "\(graphView.statistics.maxElement()!)"
         
         //3 - calculate average from graphPoints
         let averageText = graphView.statistics.reduce(0, combine: +)

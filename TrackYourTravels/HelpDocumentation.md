@@ -37,13 +37,14 @@ https://www.raywenderlich.com/122139/uiscrollview-tutorial
 Google Analytics:
 https://developers.google.com/analytics/devguides/collection/ios/v3/?ver=swift
 
-
-
 NSUserDefaults.default
 
-PausesLocationUpdatesAutomatically
 
-
+Todo:
+- Energy management: PausesLocationUpdatesAutomatically
+- Icons on tab bar
+- Month data
+- Reloading View, or delayed and background calculations.
 
 
 
