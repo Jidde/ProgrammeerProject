@@ -12,7 +12,7 @@ import UIKit
 
 @IBDesignable class GraphView: UIView {
     
-    let statistics = Statistics().returnWeekTimeArray()
+    var statistics = Statistics().returnWeekTimeArray()
     
     //1 - the properties for the gradient
     @IBInspectable var startColor: UIColor = UIColor.redColor()

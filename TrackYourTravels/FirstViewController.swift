@@ -18,9 +18,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     // RayWenderlich: Background App Refresh, instance of CLLocation manager.
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.distanceFilter = 50
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager.distanceFilter = 100
         manager.delegate = self
+        manager.pausesLocationUpdatesAutomatically = true
         manager.requestAlwaysAuthorization()
         
         return manager
@@ -31,21 +32,24 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Update significant changes in location
         if CLLocationManager.locationServicesEnabled() {
-            
             locationManager.startMonitoringSignificantLocationChanges()
         }
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        // Error handling with UIAlertView: http://zappdesigntemplates.com/uialertcontroller-ios-8-uialertview-in-swift/
+        else {
+            let alertView = UIAlertController(title: "Error", message: "No permission to use your location :-(", preferredStyle: .Alert)
+            alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            presentViewController(alertView, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 // MARK: - CLLocationManagerDelegate
-    
+    /// Did update locations behaviour.
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let annotation = MKPointAnnotation()
@@ -72,16 +76,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         
+        
+        
+        let alertView = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+        alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        presentViewController(alertView, animated: true, completion: nil)
     }
-    
-}
-
-
-extension FirstViewController: MKMapViewDelegate {
-    
-    
-    
-    
     
 }
 

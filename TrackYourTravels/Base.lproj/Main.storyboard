@@ -33,7 +33,13 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="ppL-eJ-BC7" secondAttribute="bottom" id="ibV-57-CgO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="first" id="acW-dT-cKf">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="keyPath">
+                                <color key="value" red="0.98431372549019602" green="0.12549019607843137" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="mapView" destination="ppL-eJ-BC7" id="eUN-Ow-lw2"/>
                     </connections>
@@ -161,6 +167,7 @@
                                     <segment title="Week"/>
                                     <segment title="Month"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -174,7 +181,13 @@
                             <constraint firstItem="ATp-3u-tfX" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="zDP-s0-xlZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="second" id="cPa-gy-q4n">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.98431372549019602" green="0.12549019607843137" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <connections>
                         <outlet property="avarageNumber" destination="C4p-JC-YVj" id="RVF-Zb-jPk"/>
                         <outlet property="average" destination="79s-Kn-A8e" id="we8-b7-K07"/>
@@ -214,4 +227,5 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

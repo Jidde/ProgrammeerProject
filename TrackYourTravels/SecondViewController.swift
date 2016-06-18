@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MapKit
 
 class SecondViewController: UIViewController {
     
@@ -30,32 +29,6 @@ class SecondViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        var timestampArray: Array<LocationItem> = []
-        let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
-
-        for location in locations {
-            //print(location.timestamp, location.velocity, location.latitude, location.longitude)
-            
-            let statistics = Statistics()
-            if statistics.daysBetweenDates(location.timestamp) < 7 {
-                timestampArray.append(location)
-            }
-        }
-        //print(timestampArray)
-        var totalTime = 0
-        
-        for index in 0...(timestampArray.count - 2) {
-            let statistics = Statistics()
-            let date1 = timestampArray[index].timestamp
-            let date2 = timestampArray[index + 1].timestamp
-            let minute = statistics.timeBetweenDates(date1, date2: date2)
-            
-            if minute < 30 {
-                totalTime = totalTime + statistics.timeBetweenDates(date1, date2: date2)
-            }
-        }
-        
         setupGraphDisplay()
     }
 
@@ -67,7 +40,29 @@ class SecondViewController: UIViewController {
     func setupGraphDisplay() {
         
         //1 - replace last day with today's actual data
-        //graphView.graphPoints[graphView.graphPoints.count-1] = counterView.counter
+        var timestampArray: Array<LocationItem> = []
+        let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
+        let statistics = Statistics()
+        
+        for location in locations {
+            if statistics.daysBetweenDates(location.timestamp) == 0 {
+                timestampArray.append(location)
+            }
+        }
+        var totalTime = 0
+        
+        for index in 0...(timestampArray.count - 2) {
+            let date1 = timestampArray[index].timestamp
+            let date2 = timestampArray[index + 1].timestamp
+            let minute = statistics.timeBetweenDates(date1, date2: date2)
+            
+            if minute < 30 {
+                totalTime = totalTime + statistics.timeBetweenDates(date1, date2: date2)
+            }
+        }
+        
+        // TODO
+        graphView.statistics[graphView.statistics.count-1] = totalTime
         
         //2 - indicate that the graph needs to be redrawn
         graphView.setNeedsDisplay()
