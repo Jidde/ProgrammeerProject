@@ -39,31 +39,6 @@ class SecondViewController: UIViewController {
     
     func setupGraphDisplay() {
         
-        //1 - replace last day with today's actual data
-        var timestampArray: Array<LocationItem> = []
-        let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
-        let statistics = Statistics()
-        
-        for location in locations {
-            if statistics.daysBetweenDates(location.timestamp) == 0 {
-                timestampArray.append(location)
-            }
-        }
-        var totalTime = 0
-        
-        for index in 0...(timestampArray.count - 2) {
-            let date1 = timestampArray[index].timestamp
-            let date2 = timestampArray[index + 1].timestamp
-            let minute = statistics.timeBetweenDates(date1, date2: date2)
-            
-            if minute < 30 {
-                totalTime = totalTime + statistics.timeBetweenDates(date1, date2: date2)
-            }
-        }
-        
-        // TODO
-        graphView.statistics[graphView.statistics.count-1] = totalTime
-        
         //2 - indicate that the graph needs to be redrawn
         graphView.setNeedsDisplay()
         
@@ -90,7 +65,7 @@ class SecondViewController: UIViewController {
         let days = ["S", "S", "M", "T", "W", "T", "F"]
         
         //5 - set up the day name labels with correct day
-        for i in  (1...days.count).reverse() {
+        for i in  (0...days.count-1).reverse() {
             if let labelView = graphView.viewWithTag(i) as? UILabel {
                 if weekday == 7 {
                     weekday = 0
@@ -103,6 +78,7 @@ class SecondViewController: UIViewController {
                 labelView.text = days[weekday]
             }
         }
+        
     }
 }
 

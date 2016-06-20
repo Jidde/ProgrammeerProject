@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Connect to SQLite database and create table if it doesn't exist.
         DatabaseManager.sharedInstance.connectToDatabase()
         DatabaseManager.sharedInstance.createTable()
-        
+                
         return true
     }
 

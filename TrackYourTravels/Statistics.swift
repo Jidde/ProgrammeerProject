@@ -45,7 +45,6 @@ class Statistics {
         
         let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
         let days = 7
-        var timeBetweenTravels : Array<Int> = []
         var dailyTimestampArray: Array<String>
         var timeTraveledPerWeek: Array<Int> = []
 
@@ -72,11 +71,9 @@ class Statistics {
                     
                     // If there is more than 30 minutes between a timestamp is registered as 'not traveling'
                     if minute < 30 {
-                        timeBetweenTravels.append(minute)
                         totalTime += timeBetweenDates(date1, date2: date2)
                     }
                 }
-                
             timeTraveledPerWeek.insert(totalTime, atIndex: 0)
             }
         }

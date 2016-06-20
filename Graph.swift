@@ -11,7 +11,7 @@ import UIKit
 // MARK: Tutorial material from: https://www.raywenderlich.com/90693/modern-core-graphics-with-swift-part-2
 
 @IBDesignable class GraphView: UIView {
-    
+        
     var statistics = Statistics().returnWeekTimeArray()
     
     //1 - the properties for the gradient
