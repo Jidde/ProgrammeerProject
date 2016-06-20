@@ -5,6 +5,8 @@
 //  Created by Jidde Koekoek on 30/05/16.
 //  Copyright © 2016 Jidde Koekoek. All rights reserved.
 //
+// Tab bar icons from: https://icons8.com/web-app/345/map-marker
+// https://icons8.com/web-app/6470/bullish
 
 import UIKit
 import MapKit

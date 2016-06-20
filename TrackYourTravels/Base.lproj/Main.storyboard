@@ -224,8 +224,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="60" height="60"/>
-        <image name="second" width="30" height="30"/>
+        <image name="first" width="29" height="29"/>
+        <image name="second" width="29" height="29"/>
     </resources>
     <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -23,6 +23,9 @@ class Statistics {
         
         let components = calendar.components([.Day], fromDate: d!, toDate: currentDate, options: [])
         
+        print(startDate)
+        print(components.day)
+        
         return components.day
     }
     
@@ -77,7 +80,7 @@ class Statistics {
                         totalTime += timeBetweenDates(date1, date2: date2)
                     }
                 }
-            timeTraveledPerWeek.append(totalTime)
+            timeTraveledPerWeek.insert(totalTime, atIndex: 0)
             }
         }
         print(timeTraveledPerWeek)
