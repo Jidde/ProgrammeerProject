@@ -9,43 +9,38 @@
 import Foundation
 
 class Statistics {
+    
+    let currentDate = NSDate()
 
     /// http://stackoverflow.com/questions/24723431/swift-days-between-two-nsdates
     func daysBetweenDates(startDate: String) -> Int {
         
-        let currentDate = NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
-        
         let d = dateFormatter.dateFromString(startDate)
-        
         let calendar = NSCalendar.currentCalendar()
         
-        let components = calendar.components([.Day], fromDate: d!, toDate: currentDate, options: [])
-        
-        print(startDate)
-        print(components.day)
-        
+        // Set current date to end of day.
+        let newDate: NSDate = calendar.dateBySettingHour(23, minute: 59, second: 59, ofDate: currentDate, options: NSCalendarOptions())!
+        let components = calendar.components([.Day], fromDate: d!, toDate: newDate, options: [])
+                
         return components.day
     }
     
-    /// calculates the time between to dates. 
+    /// Calculates the time between to dates.
     func timeBetweenDates(date1: String, date2: String) -> Int {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
-        
         let d1 = dateFormatter.dateFromString(date1)
         let d2 = dateFormatter.dateFromString(date2)
-        
         let calendar = NSCalendar.currentCalendar()
-        
         let components = calendar.components([.Minute], fromDate: d1!, toDate: d2!, options: [])
         
         return components.minute
     }
     
-    /// return the average traveled time and the time traveled per day (in 1 week)
+    /// Return the average traveled time and the time traveled per day (in 1 week)
     func returnWeekTimeArray () -> Array<Int> {
         
         let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
@@ -61,6 +56,7 @@ class Statistics {
             dailyTimestampArray = []
             
             for location in locations {
+                
                     if daysBetweenDates(location.timestamp) == index {
                         dailyTimestampArray.append(location.timestamp)                        
                     }
@@ -80,6 +76,7 @@ class Statistics {
                         totalTime += timeBetweenDates(date1, date2: date2)
                     }
                 }
+                
             timeTraveledPerWeek.insert(totalTime, atIndex: 0)
             }
         }
