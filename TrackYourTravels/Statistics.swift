@@ -43,6 +43,7 @@ class Statistics {
     /// Return the average traveled time and the time traveled per day (in 1 week)
     func returnWeekTimeArray () -> Array<Int> {
         
+        // TODO: READ LAST 7/31 FROM DATABASE
         let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
         let days = 7
         var dailyTimestampArray: Array<String>
@@ -55,7 +56,7 @@ class Statistics {
             dailyTimestampArray = []
             
             for location in locations {
-                
+
                     if daysBetweenDates(location.timestamp) == index {
                         dailyTimestampArray.append(location.timestamp)                        
                     }
@@ -78,6 +79,13 @@ class Statistics {
             }
         }
         print(timeTraveledPerWeek)
+        
+        // Check if there are enough statistics (values in the array) and insert 1 as placeholder if not.
+        if timeTraveledPerWeek.count < 7 {
+            for index in 0...(7 - timeTraveledPerWeek.count) {
+                timeTraveledPerWeek.insert(1, atIndex: 0)
+            }
+        }
         return (timeTraveledPerWeek)
     }
 }

@@ -72,7 +72,6 @@ class DatabaseManager {
         if database != nil {
             do {
                 for location in try database!.prepare(locationInfo)  {
-                    
                     let time = location.get(timestamp)
                     let lat = location.get(latitude)
                     let long = location.get(longitude)

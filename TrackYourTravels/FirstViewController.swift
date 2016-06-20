@@ -25,7 +25,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         manager.delegate = self
         manager.pausesLocationUpdatesAutomatically = true
         manager.requestAlwaysAuthorization()
-        
         return manager
     }()
     
@@ -50,8 +49,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
     }
 
-// MARK: - CLLocationManagerDelegate
-    /// Did update locations behaviour.
+    // MARK: - CLLocationManagerDelegate
+    /// Did update locations.
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let annotation = MKPointAnnotation()
@@ -64,23 +63,19 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         if UIApplication.sharedApplication().applicationState == .Active ||
         UIApplication.sharedApplication().applicationState == .Background ||
         UIApplication.sharedApplication().applicationState == .Inactive {
-            
             mapView.showAnnotations(locationss, animated: true)
-            
             let latitude = location.latitude
             let longitude = location.longitude
             let stamp = locations.last!.timestamp
             let speed = locations.last!.speed
-            
             DatabaseManager.sharedInstance.writeToDatabase(stamp, lat: latitude, long: longitude, speed: speed)
         }
     }
     
+    // Error handling with UIAlertView: http://zappdesigntemplates.com/uialertcontroller-ios-8-uialertview-in-swift/
+    /// Error handling didFailWithError.
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        
-        
-        
-        let alertView = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
+        let alertView = UIAlertController(title: "Error", message: "Location Error: no permission?", preferredStyle: .Alert)
         alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
         presentViewController(alertView, animated: true, completion: nil)
     }

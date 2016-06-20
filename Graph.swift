@@ -11,9 +11,9 @@ import UIKit
 // MARK: Tutorial material from: https://www.raywenderlich.com/90693/modern-core-graphics-with-swift-part-2
 
 @IBDesignable class GraphView: UIView {
-        
-    var statistics = Statistics().returnWeekTimeArray()
     
+    var statistics = Statistics().returnWeekTimeArray()
+
     //1 - the properties for the gradient
     @IBInspectable var startColor: UIColor = UIColor.redColor()
     @IBInspectable var endColor: UIColor = UIColor.greenColor()
@@ -95,7 +95,6 @@ import UIKit
         }
         
         //Create the clipping path for the graph gradient
-        
         //1 - save the state of the context (commented out for now)
         CGContextSaveGState(context)
         
