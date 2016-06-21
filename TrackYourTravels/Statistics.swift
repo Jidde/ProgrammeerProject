@@ -10,8 +10,9 @@ import Foundation
 
 class Statistics {
     
-    let currentDate = NSDate()
-
+    // Set current date to end of day.
+    let newDate: NSDate = NSCalendar.currentCalendar().dateBySettingHour(23, minute: 59, second: 59, ofDate: NSDate(), options: NSCalendarOptions())!
+    
     /// http://stackoverflow.com/questions/24723431/swift-days-between-two-nsdates
     func daysBetweenDates(startDate: String) -> Int {
         
@@ -19,9 +20,7 @@ class Statistics {
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
         let d = dateFormatter.dateFromString(startDate)
         let calendar = NSCalendar.currentCalendar()
-        
-        // Set current date to end of day.
-        let newDate: NSDate = calendar.dateBySettingHour(23, minute: 59, second: 59, ofDate: currentDate, options: NSCalendarOptions())!
+
         let components = calendar.components([.Day], fromDate: d!, toDate: newDate, options: [])
                 
         return components.day
@@ -49,7 +48,7 @@ class Statistics {
         var dailyTimestampArray: Array<String>
         var timeTraveledPerWeek: Array<Int> = []
 
-        // Loop over the different days.
+        //Loop over the different days.
         for index in 0...(days - 1) {
             
             var totalTime = 0
@@ -81,8 +80,8 @@ class Statistics {
         print(timeTraveledPerWeek)
         
         // Check if there are enough statistics (values in the array) and insert 1 as placeholder if not.
-        if timeTraveledPerWeek.count < 7 {
-            for index in 0...(7 - timeTraveledPerWeek.count) {
+        if timeTraveledPerWeek.count < days {
+            for index in 0...(days - timeTraveledPerWeek.count) {
                 timeTraveledPerWeek.insert(1, atIndex: 0)
             }
         }
