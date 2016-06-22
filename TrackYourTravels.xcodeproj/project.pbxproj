@@ -228,7 +228,6 @@
 				AC0E72E61CFF114D00E369BE /* SQLite.swift */,
 				ACFFDBA01D0996D000BC0226 /* LocationItem.swift */,
 				AC0E73161D0569D600E369BE /* Statistics.swift */,
-				AC0E73141D01B01700E369BE /* Graph.swift */,
 				AC0E72EF1D002EA200E369BE /* Location.swift */,
 			);
 			name = Model;
@@ -237,6 +236,7 @@
 		AC0E72E41CFEE6D800E369BE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC0E73141D01B01700E369BE /* Graph.swift */,
 				AC0E72B21CFCC4BB00E369BE /* Main.storyboard */,
 			);
 			name = View;

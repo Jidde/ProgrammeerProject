@@ -20,7 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Connect to SQLite database and create table if it doesn't exist.
         DatabaseManager.sharedInstance.connectToDatabase()
         DatabaseManager.sharedInstance.createTable()
-                
+        
+//        let defaults = NSUserDefaults.standardUserDefaults()
+//        
+//        let arrayWeek = Statistics().returnWeekTimeArray(7)
+//        let arrayMonth = Statistics().returnWeekTimeArray(30)
+//        
+//        defaults.setObject(arrayWeek, forKey: "ARRAYWEEK")
+//        defaults.setObject(arrayMonth, forKey: "ARRAYMOTNH")
+        
         return true
     }
 

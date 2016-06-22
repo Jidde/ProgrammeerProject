@@ -38,16 +38,20 @@ class SecondViewController: UIViewController {
     @IBAction func weekOrMonth(sender: AnyObject) {
         switch periodSetter.selectedSegmentIndex {
         case 0:
+            graphView.statistics = Statistics().returnWeekTimeArray(7)
             setupGraphDisplay()
         case 1:
-            break
+            graphView.statistics = Statistics().returnWeekTimeArray(30)
+            setupGraphDisplay()
         default:
             break;
         }
     }
     
+    // https://www.raywenderlich.com/90693/modern-core-graphics-with-swift-part-2
     /// Set up the Graph.
     func setupGraphDisplay() {
+        
         // Indicate that the graph needs to be redrawn.
         graphView.setNeedsDisplay()
         

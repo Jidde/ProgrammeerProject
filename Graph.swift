@@ -12,7 +12,7 @@ import UIKit
 
 @IBDesignable class GraphView: UIView {
     
-    var statistics = Statistics().returnWeekTimeArray()
+    var statistics = Statistics.statistics
 
     //1 - the properties for the gradient
     @IBInspectable var startColor: UIColor = UIColor.redColor()
@@ -75,7 +75,7 @@ import UIKit
             y = graphHeight + topBorder - y // Flip the graph
             return y
         }
-        
+
         // draw the line graph
         UIColor.whiteColor().setFill()
         UIColor.whiteColor().setStroke()
@@ -84,13 +84,13 @@ import UIKit
         let graphPath = UIBezierPath()
         //go to start of line
         graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
-            y:columnYPoint(statistics[0])))
+            y:columnYPoint(self.statistics[0])))
         
-        //add points for each item in the graphPoints array
+        //add points for each item in the statistics array
         //at the correct (x, y) for the point
-        for i in 1..<statistics.count {
+        for i in 1..<self.statistics.count {
             let nextPoint = CGPoint(x:columnXPoint(i),
-                                    y:columnYPoint(statistics[i]))
+                                    y:columnYPoint(self.statistics[i]))
             graphPath.addLineToPoint(nextPoint)
         }
         
@@ -103,7 +103,7 @@ import UIKit
         
         //3 - add lines to the copied path to complete the clip area
         clippingPath.addLineToPoint(CGPoint(
-            x: columnXPoint(statistics.count - 1),
+            x: columnXPoint(self.statistics.count - 1),
             y:height))
         clippingPath.addLineToPoint(CGPoint(
             x:columnXPoint(0),
@@ -125,8 +125,8 @@ import UIKit
         graphPath.stroke()
         
         //Draw the circles on top of graph stroke
-        for i in 0..<statistics.count {
-            var point = CGPoint(x:columnXPoint(i), y:columnYPoint(statistics[i]))
+        for i in 0..<self.statistics.count {
+            var point = CGPoint(x:columnXPoint(i), y:columnYPoint(self.statistics[i]))
             point.x -= 5.0/2
             point.y -= 5.0/2
             

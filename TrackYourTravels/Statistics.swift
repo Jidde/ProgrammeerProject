@@ -13,6 +13,8 @@ class Statistics {
     // Set current date to end of day.
     let newDate: NSDate = NSCalendar.currentCalendar().dateBySettingHour(23, minute: 59, second: 59, ofDate: NSDate(), options: NSCalendarOptions())!
     
+    static let statistics = Statistics().returnWeekTimeArray(7)
+    
     /// http://stackoverflow.com/questions/24723431/swift-days-between-two-nsdates
     func daysBetweenDates(startDate: String) -> Int {
         
@@ -40,11 +42,11 @@ class Statistics {
     }
     
     /// Return the average traveled time and the time traveled per day (in 1 week)
-    func returnWeekTimeArray () -> Array<Int> {
+    func returnWeekTimeArray (d: Int) -> Array<Int> {
         
         // TODO: READ LAST 7/31 FROM DATABASE
         let locations = DatabaseManager.sharedInstance.readAllFromDatabase()
-        let days = 7
+        let days = d
         var dailyTimestampArray: Array<String>
         var timeTraveledPerWeek: Array<Int> = []
 
