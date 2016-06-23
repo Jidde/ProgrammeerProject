@@ -16,3 +16,4 @@ This week I started creating a function which calculates the statistics of one d
 
 The last week was used to improve speed, implement 3D touch, improve the date accuracy (instead of the last 24h, calculation per day). Also the graph was set up for statistics per month. The app still has performance issues meaning that it takes a lot of time calculating the statistics if there is a lot of data. I spent a lot of time thinking about how to improve it. I could have calculated the statistics in the background and push the two arrays to NSUserDefaults but I didn't think this was such an elegant solution and I struggled mayorly with GCD(grand central dispatch) to use background threads and the kind. I also tried to implement an Activity Indicator, but couldn't get it to work properly. Also some time was spent improving the interface by adding some icons, changing colours etc. 
 
+
