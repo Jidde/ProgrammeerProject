@@ -5,6 +5,7 @@
 //  Created by Jidde Koekoek on 06/06/16.
 //  Copyright © 2016 Jidde Koekoek. All rights reserved.
 //
+//  Class with functions to calculate statistics.
 
 import Foundation
 
@@ -77,9 +78,7 @@ class Statistics {
                 }
             timeTraveledPerWeek.insert(totalTime, atIndex: 0)
             }
-        }
-        print(timeTraveledPerWeek)
-        
+        }        
         // Check if there are enough statistics (values in the array) and insert 1 as placeholder if not.
         if timeTraveledPerWeek.count < days {
             for index in 0...(days - timeTraveledPerWeek.count) {

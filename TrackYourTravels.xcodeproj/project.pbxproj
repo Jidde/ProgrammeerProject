@@ -21,6 +21,9 @@
 		AC0E730D1D0040C300E369BE /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72FE1D0036D400E369BE /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC0E73151D01B01700E369BE /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E73141D01B01700E369BE /* Graph.swift */; };
 		AC0E73171D0569D600E369BE /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E73161D0569D600E369BE /* Statistics.swift */; };
+		AC9221491D1C055700072CF6 /* Report.md in Sources */ = {isa = PBXBuildFile; fileRef = AC9221481D1C055700072CF6 /* Report.md */; };
+		AC92214B1D1C2CFF00072CF6 /* Progress.md in Sources */ = {isa = PBXBuildFile; fileRef = AC92214A1D1C2CFF00072CF6 /* Progress.md */; };
+		AC92214D1D1C355500072CF6 /* Track_your_travels.png in Resources */ = {isa = PBXBuildFile; fileRef = AC92214C1D1C355500072CF6 /* Track_your_travels.png */; };
 		ACFFDBA11D0996D000BC0226 /* LocationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFFDBA01D0996D000BC0226 /* LocationItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +137,9 @@
 		AC0E72F31D0036D400E369BE /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "TrackYourTravels/External/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		AC0E73141D01B01700E369BE /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Graph.swift; path = ../Graph.swift; sourceTree = "<group>"; };
 		AC0E73161D0569D600E369BE /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		AC9221481D1C055700072CF6 /* Report.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Report.md; sourceTree = "<group>"; };
+		AC92214A1D1C2CFF00072CF6 /* Progress.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Progress.md; sourceTree = "<group>"; };
+		AC92214C1D1C355500072CF6 /* Track_your_travels.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Track_your_travels.png; sourceTree = "<group>"; };
 		ACFFDBA01D0996D000BC0226 /* LocationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,11 +199,14 @@
 				AC0E72E41CFEE6D800E369BE /* View */,
 				AC0E72E51CFEE6DF00E369BE /* Controller */,
 				AC0E72B51CFCC4BB00E369BE /* Assets.xcassets */,
+				AC9221481D1C055700072CF6 /* Report.md */,
+				AC92214A1D1C2CFF00072CF6 /* Progress.md */,
 				AC0E72E81CFF1D6B00E369BE /* HelpDocumentation.md */,
 				AC0E72EB1CFF1F2200E369BE /* Design.md */,
 				AC0E72DC1CFCC6CD00E369BE /* Readme.md */,
 				AC0E72B71CFCC4BB00E369BE /* LaunchScreen.storyboard */,
 				AC0E72BA1CFCC4BB00E369BE /* Info.plist */,
+				AC92214C1D1C355500072CF6 /* Track_your_travels.png */,
 			);
 			path = TrackYourTravels;
 			sourceTree = "<group>";
@@ -438,6 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC92214D1D1C355500072CF6 /* Track_your_travels.png in Resources */,
 				AC0E72B91CFCC4BB00E369BE /* LaunchScreen.storyboard in Resources */,
 				AC0E72B61CFCC4BB00E369BE /* Assets.xcassets in Resources */,
 				AC0E72B41CFCC4BB00E369BE /* Main.storyboard in Resources */,
@@ -468,7 +478,9 @@
 				AC0E73151D01B01700E369BE /* Graph.swift in Sources */,
 				ACFFDBA11D0996D000BC0226 /* LocationItem.swift in Sources */,
 				AC0E73171D0569D600E369BE /* Statistics.swift in Sources */,
+				AC92214B1D1C2CFF00072CF6 /* Progress.md in Sources */,
 				AC0E72B11CFCC4BB00E369BE /* SecondViewController.swift in Sources */,
+				AC9221491D1C055700072CF6 /* Report.md in Sources */,
 				AC0E72E71CFF114D00E369BE /* SQLite.swift in Sources */,
 				AC0E72AD1CFCC4BB00E369BE /* AppDelegate.swift in Sources */,
 				AC0E72AF1CFCC4BB00E369BE /* FirstViewController.swift in Sources */,

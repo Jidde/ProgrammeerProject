@@ -12,11 +12,13 @@ import SQLite
 
 class DatabaseManager {
     
+    // Singleton
     static let sharedInstance = DatabaseManager()
     
-    // MARK: SQLite database
+    // Connection
     private var database: Connection?
     
+    // Databasefields
     private let locationInfo = Table("LocationInfo")
     private let id = Expression<Int64>("ID")
     private let timestamp = Expression<String?>("Timestamp")
@@ -55,11 +57,10 @@ class DatabaseManager {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
         let timestampString = dateFormatter.stringFromDate(time)
-        
         let insert = locationInfo.insert(timestamp <- timestampString, latitude <- lat, longitude <- long, velocity <- speed)
+        
         do {
             let rowID = try database!.run(insert)
-            print (rowID)
         } catch {
             print("Error creating to do: \(error)")
         }

@@ -5,6 +5,7 @@
 //  Created by Jidde Koekoek on 09/06/16.
 //  Copyright © 2016 Jidde Koekoek. All rights reserved.
 //
+//  Location item
 
 import Foundation
 
