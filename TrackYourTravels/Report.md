@@ -2,7 +2,7 @@
 
 This application tracks your travels. It registers whether or not you are on the go using the startMonitoringSignificantLocationChanges method. It then calculates how much time you spent traveling and draws a custom graph.
 
-![Track_your_travels](/Track_your_travels.png)
+![Track_your_travels](/TrackYourTravels/Track_your_travels.png)
 
 #Model
 The technical design of the application is as follows: working through the MVC model, the model contains an 
