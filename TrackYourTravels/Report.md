@@ -21,7 +21,7 @@ The technical design of the application is as follows: working through the MVC m
 - The SecondViewController handles the graphView and the sets some labels to their values.
 
 #Challenges
-The biggest flaw in the application is that it takes a long time to calculate the statistics if there is a lot of data in the database. I skipped the Account settings tab, because of lack of accuracy in recording the speed of the user and because it was actually a bit superfluous. It did only degrade the user experience. I tried to improve the performance of the app by 
+The biggest flaw in the application is that it takes a long time to calculate the statistics if there is a lot of data in the database. I skipped the Account settings tab, because of lack of accuracy in recording the speed of the user and because it was actually a bit superfluous. It did only degrade the user experience. I tried to improve the performance of the app by checking out NSUserDefaults and GCD (Grand central dispatch), but no luck unfortunately. The app could be improved by doing the calculations at different time, or in the background and by changing the way the graph is drawn: first draw the background etc and load the view and then draw the actual line.
 
 
 
