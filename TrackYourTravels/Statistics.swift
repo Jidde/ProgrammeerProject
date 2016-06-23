@@ -13,7 +13,8 @@ class Statistics {
     // Set current date to end of day.
     let newDate: NSDate = NSCalendar.currentCalendar().dateBySettingHour(23, minute: 59, second: 59, ofDate: NSDate(), options: NSCalendarOptions())!
     
-    static let statistics = Statistics().returnWeekTimeArray(7)
+    private static let days = 7
+    static let statistics = Statistics().returnWeekTimeArray(days)
     
     /// http://stackoverflow.com/questions/24723431/swift-days-between-two-nsdates
     func daysBetweenDates(startDate: String) -> Int {
@@ -22,7 +23,6 @@ class Statistics {
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
         let d = dateFormatter.dateFromString(startDate)
         let calendar = NSCalendar.currentCalendar()
-
         let components = calendar.components([.Day], fromDate: d!, toDate: newDate, options: [])
                 
         return components.day
@@ -57,7 +57,6 @@ class Statistics {
             dailyTimestampArray = []
             
             for location in locations {
-
                     if daysBetweenDates(location.timestamp) == index {
                         dailyTimestampArray.append(location.timestamp)                        
                     }

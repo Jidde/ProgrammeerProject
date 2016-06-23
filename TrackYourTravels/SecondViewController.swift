@@ -21,13 +21,17 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var maximum: UILabel!
     @IBOutlet weak var minimum: UILabel!
     @IBOutlet weak var total: UILabel!
-
+    @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
     
+    let week = 7
+    let month = 30
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupGraphDisplay()
+        setupGraphDisplay(week)
+        activityMonitor.hidden = true
     }
-        
+    
     override func viewWillAppear(animated: Bool) {
     }
 
@@ -38,19 +42,33 @@ class SecondViewController: UIViewController {
     @IBAction func weekOrMonth(sender: AnyObject) {
         switch periodSetter.selectedSegmentIndex {
         case 0:
-            graphView.statistics = Statistics().returnWeekTimeArray(7)
-            setupGraphDisplay()
+            activityMonitor.hidden = false
+            activityMonitor.startAnimating()
+            
+            graphView.statistics = Statistics().returnWeekTimeArray(week)
+            self.setupGraphDisplay(week)
+            
+//            activityMonitor.stopAnimating()
+//            activityMonitor.hidden = true
         case 1:
-            graphView.statistics = Statistics().returnWeekTimeArray(30)
-            setupGraphDisplay()
+            activityMonitor.hidden = false
+            activityMonitor.startAnimating()
+            
+            graphView.statistics = Statistics().returnWeekTimeArray(month)
+            self.setupGraphDisplay(month)
+            
+//            activityMonitor.stopAnimating()
+//            activityMonitor.hidden = true
         default:
             break;
         }
     }
     
     // https://www.raywenderlich.com/90693/modern-core-graphics-with-swift-part-2
-    /// Set up the Graph.
-    func setupGraphDisplay() {
+    /// Set up the Graph. Redraw view and add some labels.
+    func setupGraphDisplay(noOfDays: Int) {
+        
+        let numberOfDays = noOfDays
         
         // Indicate that the graph needs to be redrawn.
         graphView.setNeedsDisplay()
@@ -61,14 +79,14 @@ class SecondViewController: UIViewController {
         let averageText = graphView.statistics.reduce(0, combine: +)
             / graphView.statistics.count
         average.text = "Average:"
-        avarageNumber.text = "\(averageText)"
+        avarageNumber.text = "\(averageText) minutes"
         
         var totalTime = 0
         
         for index in 0...graphView.statistics.count-1 {
             totalTime += graphView.statistics[index]
         }
-        total.text = "\(totalTime)"
+        total.text = "\(totalTime/60) hours"
         
         // Day of week labels are set up in storyboard with tags.
         // Get today's day number.
@@ -78,19 +96,37 @@ class SecondViewController: UIViewController {
         let components = calendar.components(componentOptions,
                                              fromDate: NSDate())
         var weekday = components.weekday
+        
         let days = ["S", "S", "M", "T", "W", "T", "F"]
+        weekday += 1
         
         // Set up the day name labels with correct day.
-        for i in  (0...days.count-1).reverse() {
+        for i in (1...numberOfDays).reverse() {
             if let labelView = graphView.viewWithTag(i) as? UILabel {
-                if weekday == 7 {
-                    weekday = 0
+                
+                if numberOfDays == week {
+                    if weekday == numberOfDays {
+                        weekday = 0
+                    }
+                    weekday -= 1
+                    if weekday < 0 {
+                        weekday = numberOfDays - 1
+                    }
+                    labelView.text = days[weekday]
                 }
-                weekday -= 1
-                if weekday < 0 {
-                    weekday = days.count - 1
+                else {
+                    if let labelView = graphView.viewWithTag(1) as? UILabel {
+                        labelView.text = "\(month)"
+                    }
+                    for index in (2...6) {
+                        if let labelView = graphView.viewWithTag(index) as? UILabel {
+                            labelView.text = ""
+                        }
+                    }
+                    if let labelView = graphView.viewWithTag(7) as? UILabel {
+                        labelView.text = "Now"
+                    }
                 }
-                labelView.text = days[weekday]
             }
         }
     }

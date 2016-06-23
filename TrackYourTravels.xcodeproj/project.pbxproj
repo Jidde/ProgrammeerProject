@@ -17,7 +17,6 @@
 		AC0E72CF1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72CE1CFCC4BC00E369BE /* TrackYourTravelsUITests.swift */; };
 		AC0E72E01CFDECB600E369BE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72DF1CFDECB600E369BE /* MapKit.framework */; };
 		AC0E72E71CFF114D00E369BE /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72E61CFF114D00E369BE /* SQLite.swift */; };
-		AC0E72F01D002EA200E369BE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E72EF1D002EA200E369BE /* Location.swift */; };
 		AC0E730C1D0040C300E369BE /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72FE1D0036D400E369BE /* SQLite.framework */; };
 		AC0E730D1D0040C300E369BE /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC0E72FE1D0036D400E369BE /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC0E73151D01B01700E369BE /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E73141D01B01700E369BE /* Graph.swift */; };
@@ -132,7 +131,6 @@
 		AC0E72E61CFF114D00E369BE /* SQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLite.swift; sourceTree = "<group>"; };
 		AC0E72E81CFF1D6B00E369BE /* HelpDocumentation.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = HelpDocumentation.md; sourceTree = "<group>"; };
 		AC0E72EB1CFF1F2200E369BE /* Design.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = Design.md; path = ../Design.md; sourceTree = "<group>"; };
-		AC0E72EF1D002EA200E369BE /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		AC0E72F31D0036D400E369BE /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "TrackYourTravels/External/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		AC0E73141D01B01700E369BE /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Graph.swift; path = ../Graph.swift; sourceTree = "<group>"; };
 		AC0E73161D0569D600E369BE /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				AC0E72E61CFF114D00E369BE /* SQLite.swift */,
 				ACFFDBA01D0996D000BC0226 /* LocationItem.swift */,
 				AC0E73161D0569D600E369BE /* Statistics.swift */,
-				AC0E72EF1D002EA200E369BE /* Location.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -472,7 +469,6 @@
 				ACFFDBA11D0996D000BC0226 /* LocationItem.swift in Sources */,
 				AC0E73171D0569D600E369BE /* Statistics.swift in Sources */,
 				AC0E72B11CFCC4BB00E369BE /* SecondViewController.swift in Sources */,
-				AC0E72F01D002EA200E369BE /* Location.swift in Sources */,
 				AC0E72E71CFF114D00E369BE /* SQLite.swift in Sources */,
 				AC0E72AD1CFCC4BB00E369BE /* AppDelegate.swift in Sources */,
 				AC0E72AF1CFCC4BB00E369BE /* FirstViewController.swift in Sources */,

@@ -16,16 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
         // Connect to SQLite database and create table if it doesn't exist.
         DatabaseManager.sharedInstance.connectToDatabase()
         DatabaseManager.sharedInstance.createTable()
         
 //        let defaults = NSUserDefaults.standardUserDefaults()
-//        
 //        let arrayWeek = Statistics().returnWeekTimeArray(7)
 //        let arrayMonth = Statistics().returnWeekTimeArray(30)
-//        
 //        defaults.setObject(arrayWeek, forKey: "ARRAYWEEK")
 //        defaults.setObject(arrayMonth, forKey: "ARRAYMOTNH")
         
@@ -53,7 +50,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        
+        if shortcutItem.type == "nl.mprog.TrackYourTravels" {
+            let storyboardObject = UIStoryboard(name: "Main", bundle: nil)
+            let statisticsVC = storyboardObject.instantiateViewControllerWithIdentifier("statisticsVC") as! SecondViewController
+            let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController
+            rootVC?.presentViewController(statisticsVC, animated: false, completion: {
+                completionHandler(true)
+            })
+        }
+    }
 }
+
+
+
+
+
+
+
 

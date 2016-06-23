@@ -26,6 +26,15 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Your location is needed to create the statistics!</string>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Statistics</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>nl.mprog.TrackYourTravels</string>
+		</dict>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

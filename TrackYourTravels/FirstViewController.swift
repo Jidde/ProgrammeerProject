@@ -20,8 +20,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     // RayWenderlich: Background App Refresh, instance of CLLocation manager.
     lazy var locationManager: CLLocationManager! = {
         let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        manager.distanceFilter = 100
         manager.delegate = self
         manager.pausesLocationUpdatesAutomatically = true
         manager.requestAlwaysAuthorization()
@@ -56,7 +54,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         let annotation = MKPointAnnotation()
         let location = (locations.last?.coordinate)!
         annotation.coordinate = location
-        
         locationss.append(annotation)
         
         // Update map in all states and push to database.
@@ -79,7 +76,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         alertView.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
         presentViewController(alertView, animated: true, completion: nil)
     }
-    
 }
 
 
