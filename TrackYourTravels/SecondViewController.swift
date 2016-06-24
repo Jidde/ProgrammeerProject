@@ -21,7 +21,6 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var maximum: UILabel!
     @IBOutlet weak var minimum: UILabel!
     @IBOutlet weak var total: UILabel!
-    @IBOutlet weak var activityMonitor: UIActivityIndicatorView!
     
     let week = 7
     let month = 30
@@ -29,7 +28,6 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGraphDisplay(week)
-        activityMonitor.hidden = true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,23 +40,13 @@ class SecondViewController: UIViewController {
     @IBAction func weekOrMonth(sender: AnyObject) {
         switch periodSetter.selectedSegmentIndex {
         case 0:
-            activityMonitor.hidden = false
-            activityMonitor.startAnimating()
-            
             graphView.statistics = Statistics().returnWeekTimeArray(week)
             self.setupGraphDisplay(week)
-            
-//            activityMonitor.stopAnimating()
-//            activityMonitor.hidden = true
+
         case 1:
-            activityMonitor.hidden = false
-            activityMonitor.startAnimating()
-            
             graphView.statistics = Statistics().returnWeekTimeArray(month)
             self.setupGraphDisplay(month)
-            
-//            activityMonitor.stopAnimating()
-//            activityMonitor.hidden = true
+
         default:
             break;
         }

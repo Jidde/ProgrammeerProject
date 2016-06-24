@@ -144,10 +144,6 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="X7V-qP-WSc">
-                                                <rect key="frame" x="131" y="106" width="37" height="37"/>
-                                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
@@ -202,7 +198,6 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
-                        <outlet property="activityMonitor" destination="X7V-qP-WSc" id="ruB-Wr-jNe"/>
                         <outlet property="avarageNumber" destination="C4p-JC-YVj" id="RVF-Zb-jPk"/>
                         <outlet property="average" destination="79s-Kn-A8e" id="we8-b7-K07"/>
                         <outlet property="containerView" destination="ByP-NJ-xnb" id="7T6-71-Gwp"/>
